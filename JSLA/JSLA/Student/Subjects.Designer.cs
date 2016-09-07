@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.flpGallery = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label1 = new JSLA.Usercontrols.LabelDropShadow();
             this.SuspendLayout();
             // 
             // flpGallery
@@ -75,6 +75,6 @@
 
         #endregion
         private System.Windows.Forms.FlowLayoutPanel flpGallery;
-        private System.Windows.Forms.Label label1;
+        private JSLA.Usercontrols.LabelDropShadow label1;
     }
 }

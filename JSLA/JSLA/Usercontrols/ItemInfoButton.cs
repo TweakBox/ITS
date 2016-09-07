@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -20,21 +21,32 @@ namespace JSLA.Usercontrols
 
         public string Subtitle
         {
-            get { return lblTitle.Text; }
-            set { lblTitle.Text = value; }
+            get { return lblSubtitle.Text; }
+            set { lblSubtitle.Text = value; }
         }
 
         public string Description
         {
-            get { return lblTitle.Text; }
-            set { lblTitle.Text = value; }
+            get { return lblDescription.Text; }
+            set { lblDescription.Text = value; }
         }
 
         public ItemInfoButton()
         {
             InitializeComponent();
 
+            foreach (Control item in Controls)
+                item.Click += Controls_Click;
             lblTitle.Width = Width - lblSubtitle.Width + 6;
         }
+
+        private void Controls_Click(object sender, EventArgs e)
+        {
+            OnClick(EventArgs.Empty);
+        }
+
+
+
+        
     }
 }

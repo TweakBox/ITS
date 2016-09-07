@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.label1 = new JSLA.Usercontrols.LabelDropShadow();
+            this.lblDescription = new JSLA.Usercontrols.LabelDropShadow();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -90,9 +90,9 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
+        private JSLA.Usercontrols.LabelDropShadow label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label lblDescription;
+        private JSLA.Usercontrols.LabelDropShadow lblDescription;
     }
 }
 

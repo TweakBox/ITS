@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCount = new System.Windows.Forms.Label();
-            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblCount = new JSLA.Usercontrols.LabelDropShadow();
+            this.lblTitle = new JSLA.Usercontrols.LabelDropShadow();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -93,7 +93,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblCount;
-        private System.Windows.Forms.Label lblTitle;
+        private JSLA.Usercontrols.LabelDropShadow lblCount;
+        private JSLA.Usercontrols.LabelDropShadow lblTitle;
     }
 }

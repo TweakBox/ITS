@@ -29,41 +29,28 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.label3 = new System.Windows.Forms.Label();
             this.flpActions = new System.Windows.Forms.FlowLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnAnnouncements = new System.Windows.Forms.Button();
             this.btnSubjects = new System.Windows.Forms.Button();
             this.pnlSidedrawer = new System.Windows.Forms.Panel();
-            this.lblUserid = new System.Windows.Forms.Label();
-            this.lblFullname = new System.Windows.Forms.Label();
             this.pbxAvatar = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.btnTogglesidedrawer = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblDateTime = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pbxHeader = new System.Windows.Forms.PictureBox();
+            this.lblUserid = new JSLA.Usercontrols.LabelDropShadow();
+            this.lblFullname = new JSLA.Usercontrols.LabelDropShadow();
+            this.lblDateTime = new JSLA.Usercontrols.LabelDropShadow();
+            this.label7 = new JSLA.Usercontrols.LabelDropShadow();
+            this.label1 = new System.Windows.Forms.Label();
             this.flpActions.SuspendLayout();
             this.pnlSidedrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxHeader)).BeginInit();
             this.SuspendLayout();
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.label3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semilight", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label3.Location = new System.Drawing.Point(36, 0);
-            this.label3.Name = "label3";
-            this.label3.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.label3.Size = new System.Drawing.Size(764, 120);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "Juan Sumulong Learning App";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flpActions
             // 
@@ -83,18 +70,6 @@
             this.flpActions.Size = new System.Drawing.Size(248, 481);
             this.flpActions.TabIndex = 7;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(117, 37);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Actions";
-            // 
             // btnAnnouncements
             // 
             this.btnAnnouncements.AutoEllipsis = true;
@@ -103,7 +78,7 @@
             this.btnAnnouncements.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAnnouncements.Image = global::JSLA.Properties.Resources.Announcements;
             this.btnAnnouncements.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnnouncements.Location = new System.Drawing.Point(3, 40);
+            this.btnAnnouncements.Location = new System.Drawing.Point(3, 33);
             this.btnAnnouncements.Name = "btnAnnouncements";
             this.btnAnnouncements.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnAnnouncements.Size = new System.Drawing.Size(242, 35);
@@ -122,7 +97,7 @@
             this.btnSubjects.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSubjects.Image = global::JSLA.Properties.Resources.Subjects;
             this.btnSubjects.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSubjects.Location = new System.Drawing.Point(3, 81);
+            this.btnSubjects.Location = new System.Drawing.Point(3, 74);
             this.btnSubjects.Name = "btnSubjects";
             this.btnSubjects.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.btnSubjects.Size = new System.Drawing.Size(242, 35);
@@ -148,25 +123,6 @@
             this.pnlSidedrawer.Name = "pnlSidedrawer";
             this.pnlSidedrawer.Size = new System.Drawing.Size(250, 600);
             this.pnlSidedrawer.TabIndex = 8;
-            // 
-            // lblUserid
-            // 
-            this.lblUserid.AutoEllipsis = true;
-            this.lblUserid.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserid.Location = new System.Drawing.Point(84, 69);
-            this.lblUserid.Name = "lblUserid";
-            this.lblUserid.Size = new System.Drawing.Size(163, 23);
-            this.lblUserid.TabIndex = 9;
-            this.lblUserid.Text = "User ID";
-            // 
-            // lblFullname
-            // 
-            this.lblFullname.AutoEllipsis = true;
-            this.lblFullname.Location = new System.Drawing.Point(84, 39);
-            this.lblFullname.Name = "lblFullname";
-            this.lblFullname.Size = new System.Drawing.Size(163, 30);
-            this.lblFullname.TabIndex = 8;
-            this.lblFullname.Text = "Fullname";
             // 
             // pbxAvatar
             // 
@@ -225,23 +181,90 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
-            // lblDateTime
-            // 
-            this.lblDateTime.AutoSize = true;
-            this.lblDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.lblDateTime.ForeColor = System.Drawing.Color.White;
-            this.lblDateTime.Location = new System.Drawing.Point(54, 90);
-            this.lblDateTime.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
-            this.lblDateTime.Name = "lblDateTime";
-            this.lblDateTime.Size = new System.Drawing.Size(120, 30);
-            this.lblDateTime.TabIndex = 11;
-            this.lblDateTime.Text = "--/--/-- --:--";
-            // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 500;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pbxHeader
+            // 
+            this.pbxHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.pbxHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbxHeader.Font = new System.Drawing.Font("Segoe UI Semilight", 24F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pbxHeader.ForeColor = System.Drawing.Color.White;
+            this.pbxHeader.Location = new System.Drawing.Point(36, 0);
+            this.pbxHeader.Name = "pbxHeader";
+            this.pbxHeader.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.pbxHeader.Size = new System.Drawing.Size(764, 120);
+            this.pbxHeader.TabIndex = 5;
+            this.pbxHeader.TabStop = false;
+            // 
+            // lblUserid
+            // 
+            this.lblUserid.AutoEllipsis = true;
+            this.lblUserid.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserid.Location = new System.Drawing.Point(84, 69);
+            this.lblUserid.Name = "lblUserid";
+            this.lblUserid.ShadowDepth = 3;
+            this.lblUserid.Size = new System.Drawing.Size(163, 23);
+            this.lblUserid.Softness = 1F;
+            this.lblUserid.TabIndex = 9;
+            this.lblUserid.Text = "User ID";
+            // 
+            // lblFullname
+            // 
+            this.lblFullname.AutoEllipsis = true;
+            this.lblFullname.Location = new System.Drawing.Point(84, 39);
+            this.lblFullname.Name = "lblFullname";
+            this.lblFullname.ShadowDepth = 3;
+            this.lblFullname.Size = new System.Drawing.Size(163, 30);
+            this.lblFullname.Softness = 1F;
+            this.lblFullname.TabIndex = 8;
+            this.lblFullname.Text = "Fullname";
+            // 
+            // lblDateTime
+            // 
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.lblDateTime.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Italic);
+            this.lblDateTime.ForeColor = System.Drawing.Color.White;
+            this.lblDateTime.Location = new System.Drawing.Point(54, 90);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.lblDateTime.ShadowDepth = 3;
+            this.lblDateTime.Size = new System.Drawing.Size(135, 30);
+            this.lblDateTime.Softness = 1F;
+            this.lblDateTime.TabIndex = 12;
+            this.lblDateTime.Text = "--/--/-- --:--";
+            this.lblDateTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Italic);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(57, 40);
+            this.label7.Name = "label7";
+            this.label7.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.label7.ShadowDepth = 3;
+            this.label7.Size = new System.Drawing.Size(439, 45);
+            this.label7.Softness = 1F;
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Juan Sumulong Learning App";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(97, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Actions";
             // 
             // Dashboard
             // 
@@ -250,10 +273,11 @@
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnTogglesidedrawer);
             this.Controls.Add(this.pnlSidedrawer);
-            this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pnlContent);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblDateTime);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.pbxHeader);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -268,6 +292,7 @@
             this.pnlSidedrawer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxHeader)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,19 +301,20 @@
         #endregion
 
         private System.Windows.Forms.Button btnExit;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.FlowLayoutPanel flpActions;
         private System.Windows.Forms.PictureBox pbxAvatar;
         private System.Windows.Forms.Panel pnlSidedrawer;
         private System.Windows.Forms.Button btnTogglesidedrawer;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblFullname;
-        private System.Windows.Forms.Label lblUserid;
+        private JSLA.Usercontrols.LabelDropShadow lblFullname;
+        private JSLA.Usercontrols.LabelDropShadow lblUserid;
         private System.Windows.Forms.Panel pnlContent;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAnnouncements;
         private System.Windows.Forms.Button btnSubjects;
-        private System.Windows.Forms.Label lblDateTime;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pbxHeader;
+        private Usercontrols.LabelDropShadow label7;
+        private Usercontrols.LabelDropShadow lblDateTime;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -24,3 +24,4 @@ D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Student.Subjects.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Usercontrols.PictureButton.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Student.SubjectInfo.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Usercontrols.ItemInfoButton.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Student.HomeworkInfo.resources

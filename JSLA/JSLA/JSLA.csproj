@@ -79,6 +79,12 @@
     <Compile Include="Student\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student\HomeworkInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\HomeworkInfo.Designer.cs">
+      <DependentUpon>HomeworkInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Student\SubjectInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,6 +102,12 @@
     </Compile>
     <Compile Include="Usercontrols\ItemInfoButton.Designer.cs">
       <DependentUpon>ItemInfoButton.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Usercontrols\LabelDropShadow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Usercontrols\LabelDropShadow.Designer.cs">
+      <DependentUpon>LabelDropShadow.cs</DependentUpon>
     </Compile>
     <Compile Include="Usercontrols\PictureButton.cs">
       <SubType>UserControl</SubType>
@@ -121,6 +133,9 @@
     </Compile>
     <EmbeddedResource Include="Student\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\HomeworkInfo.resx">
+      <DependentUpon>HomeworkInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\SubjectInfo.resx">
       <DependentUpon>SubjectInfo.cs</DependentUpon>
@@ -164,6 +179,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
