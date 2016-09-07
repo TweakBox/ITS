@@ -47,6 +47,7 @@
             this.lblCount.TabIndex = 2;
             this.lblCount.Text = "99+";
             this.lblCount.Visible = false;
+            this.lblCount.Click += new System.EventHandler(this.Controls_Click);
             // 
             // lblTitle
             // 
@@ -57,6 +58,7 @@
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Title";
             this.lblTitle.UseMnemonic = false;
+            this.lblTitle.Click += new System.EventHandler(this.Controls_Click);
             // 
             // pictureBox1
             // 
@@ -67,6 +69,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(198, 200);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.Controls_Click);
             // 
             // PictureButton
             // 

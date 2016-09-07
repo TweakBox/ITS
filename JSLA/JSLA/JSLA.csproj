@@ -91,6 +91,12 @@
     <Compile Include="Student\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrols\ItemInfoButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usercontrols\ItemInfoButton.Designer.cs">
+      <DependentUpon>ItemInfoButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\PictureButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Student\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrols\ItemInfoButton.resx">
+      <DependentUpon>ItemInfoButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrols\PictureButton.resx">
       <DependentUpon>PictureButton.cs</DependentUpon>

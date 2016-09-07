@@ -40,5 +40,10 @@ namespace JSLA.Usercontrols
         {
             InitializeComponent();
         }
+
+        private void Controls_Click(object sender, EventArgs e)
+        {
+            OnClick(EventArgs.Empty);
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label3 = new System.Windows.Forms.Label();
             this.flpActions = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,8 @@
             this.btnTogglesidedrawer = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblDateTime = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.flpActions.SuspendLayout();
             this.pnlSidedrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).BeginInit();
@@ -222,6 +225,24 @@
             this.pictureBox1.TabIndex = 9;
             this.pictureBox1.TabStop = false;
             // 
+            // lblDateTime
+            // 
+            this.lblDateTime.AutoSize = true;
+            this.lblDateTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
+            this.lblDateTime.ForeColor = System.Drawing.Color.White;
+            this.lblDateTime.Location = new System.Drawing.Point(54, 90);
+            this.lblDateTime.Margin = new System.Windows.Forms.Padding(15, 0, 3, 0);
+            this.lblDateTime.Name = "lblDateTime";
+            this.lblDateTime.Size = new System.Drawing.Size(120, 30);
+            this.lblDateTime.TabIndex = 11;
+            this.lblDateTime.Text = "--/--/-- --:--";
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 500;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Dashboard
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -229,6 +250,7 @@
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnTogglesidedrawer);
             this.Controls.Add(this.pnlSidedrawer);
+            this.Controls.Add(this.lblDateTime);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.pnlContent);
             this.Controls.Add(this.label3);
@@ -247,6 +269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -265,5 +288,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnAnnouncements;
         private System.Windows.Forms.Button btnSubjects;
+        private System.Windows.Forms.Label lblDateTime;
+        private System.Windows.Forms.Timer timer1;
     }
 }

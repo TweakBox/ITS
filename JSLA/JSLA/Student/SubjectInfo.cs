@@ -13,14 +13,16 @@ namespace JSLA.Student
     public partial class SubjectInfo : Form
     {
         private Database _db;
-        private int _id;
+        private Classess.AccountInfo _account;
+        private int _subjectId;
 
-        public SubjectInfo(Database db, int subjectId)
+        public SubjectInfo(Database db, Classess.AccountInfo account, int subjectId)
         {
             InitializeComponent();
 
             _db = db;
-            _id = subjectId;
+            _account = account;
+            _subjectId = subjectId;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -30,12 +32,18 @@ namespace JSLA.Student
 
         private void SubjectInfo_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = _db.ScanRecordScalar("tbl_subject", "Subject_Name", "Subject_Id = '" + _id.ToString() + '\'');
+            lblTitle.Text = _db.ScanRecordScalar("tbl_subject", "Subject_Name", "Subject_Id = '" + _subjectId.ToString() + '\'');
         }
 
         private void fetchHomeworks()
         {
+            string section = _db.ScanRecordScalar("tbl_student", "Section_Id", "Stud_Id = '" + _account.UserId + '\'');
+            string[,] results = _db.ScanRecords("tbl_homework", new string[] { "Title", "Content", "DateDue" }, "Subject_Id = '" + _subjectId + "' and Section_Id = '" + section + '\'');
 
+            for (int i = 0; i < 3 && i < results.GetLength(0); i++)
+            {
+
+            }
         }
 
         private void fetchNotes()

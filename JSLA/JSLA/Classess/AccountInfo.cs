@@ -23,8 +23,7 @@ namespace JSLA.Classess
             string firstname,
             string middlename,
             AccountTypeEnum accounttype,
-            Image avatar
-            )
+            Image avatar)
         {
             UserId = userid;
             Lastname = lastname;

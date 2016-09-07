@@ -34,6 +34,8 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnBack = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -51,6 +53,7 @@
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Location = new System.Drawing.Point(12, 49);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(520, 150);
@@ -61,13 +64,13 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Location = new System.Drawing.Point(12, 205);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(250, 383);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Quiz";
+            this.groupBox2.Text = "Quizzes";
             // 
             // groupBox3
             // 
@@ -104,6 +107,15 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 31);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(514, 116);
+            this.flowLayoutPanel1.TabIndex = 0;
+            // 
             // SubjectInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -121,6 +133,7 @@
             this.Name = "SubjectInfo";
             this.Text = "SubjectInfo";
             this.Load += new System.EventHandler(this.SubjectInfo_Load);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,5 +147,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }

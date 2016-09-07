@@ -26,6 +26,8 @@ namespace JSLA.Student
         public Dashboard(Database db, string id)
         {
             InitializeComponent();
+            lblDateTime.Text = DateTime.Now.ToLongDateString() + ' ' + DateTime.Now.ToLongTimeString();
+
             _db = db;
             _id = id;
 
@@ -128,6 +130,11 @@ namespace JSLA.Student
             pnlContent.Controls.Add(f);
             f.Show();
             f.Dock = DockStyle.Fill;
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            lblDateTime.Text = DateTime.Now.ToLongDateString() + ' ' + DateTime.Now.ToLongTimeString();
         }
     }
 }

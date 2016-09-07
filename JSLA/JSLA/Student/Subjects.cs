@@ -13,13 +13,13 @@ namespace JSLA.Student
 {
     public partial class Subjects : Form
     {
-        private AccountInfo _accountInfo;
+        private AccountInfo _account;
         private Database _db;
 
         public Subjects(AccountInfo accountinfo, Database db)
         {
             InitializeComponent();
-            _accountInfo = accountinfo;
+            _account = accountinfo;
             _db = db;
         }
 
@@ -43,11 +43,6 @@ namespace JSLA.Student
                     ForeColor = Color.White
                 };
                 pb.Click += Pb_Click;
-                foreach (Control item in pb.Controls)
-                {
-                    item.Tag = pb.Tag;
-                    item.Click += Pb_Click;
-                }
 
                 flpGallery.Controls.Add(pb);
             }
@@ -57,8 +52,8 @@ namespace JSLA.Student
         private void Pb_Click(object sender, EventArgs e)
         {
             Control c = (Control)sender;
-            SubjectInfo si = new SubjectInfo(_db, int.Parse(c.Tag.ToString()));
-            si.FormClosed += Si_FormClosed;
+            SubjectInfo si = new SubjectInfo(_db, _account, int.Parse(c.Tag.ToString()));
+            si.FormClosed += child_FormClosed;
 
             si.Dock = DockStyle.Fill;
             si.TopLevel = false;
@@ -67,7 +62,7 @@ namespace JSLA.Student
             si.Show();
         }
 
-        private void Si_FormClosed(object sender, FormClosedEventArgs e)
+        private void child_FormClosed(object sender, FormClosedEventArgs e)
         {
             Show();
         }
