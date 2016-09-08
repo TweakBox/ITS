@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrator\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classess\AccountInfo.cs" />
     <Compile Include="Classess\Database.cs" />
     <Compile Include="Classess\WebServer.cs" />
