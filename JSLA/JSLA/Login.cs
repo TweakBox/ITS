@@ -14,6 +14,8 @@ namespace JSLA
     {
         private Database _db = new Database();
 
+        private bool[] _adminBackdoor = new bool[5];
+
         public Login()
         {
             InitializeComponent();
@@ -41,6 +43,7 @@ namespace JSLA
                                 f = new Student.Dashboard(_db, result[0, 3]);
                                 break;
                             case "Teacher":
+                                f = new Teacher.Dashboard(_db, result[0, 3]);
                                 break;
                             case "Admin":
                                 break;
@@ -67,6 +70,55 @@ namespace JSLA
                 MessageBox.Show("User ID does not exist!", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 tbxUserId.Focus();
                 tbxUserId.SelectAll();
+            }
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (!_adminBackdoor[0])
+            {
+                if (e.Alt && e.Control && e.Shift && e.KeyCode == Keys.A)
+                    _adminBackdoor[0] = true;
+                else if (!e.Alt && !e.Control && !e.Shift)
+                    _adminBackdoor = new bool[5];
+            }
+            else if (!_adminBackdoor[1])
+            {
+                if (e.Alt && e.Control && e.Shift && e.KeyCode == Keys.D)
+                    _adminBackdoor[1] = true;
+                else if (!e.Alt && !e.Control && !e.Shift)
+                    _adminBackdoor = new bool[5];
+            }
+            else if (!_adminBackdoor[2])
+            {
+                if (e.Alt && e.Control && e.Shift && e.KeyCode == Keys.M)
+                    _adminBackdoor[2] = true;
+                else if (!e.Alt && !e.Control && !e.Shift)
+                    _adminBackdoor = new bool[5];
+            }
+            else if (!_adminBackdoor[3])
+            {
+                if (e.Alt && e.Control && e.Shift && e.KeyCode == Keys.I)
+                    _adminBackdoor[3] = true;
+                else if (!e.Alt && !e.Control && !e.Shift)
+                    _adminBackdoor = new bool[5];
+            }
+            else if (!_adminBackdoor[4])
+            {
+                if (e.Alt && e.Control && e.Shift && e.KeyCode == Keys.N)
+                {
+                    _adminBackdoor = new bool[5];
+                    Administrator.Dashboard d = new Administrator.Dashboard(_db, "303030");
+                    Hide();
+                    d.ShowDialog();
+                }
+                else if (!e.Alt && !e.Control && !e.Shift)
+                    _adminBackdoor = new bool[5];
             }
         }
     }

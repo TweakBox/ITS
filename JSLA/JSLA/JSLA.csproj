@@ -39,6 +39,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,13 +51,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrator\AccountManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\AccountManager.Designer.cs">
+      <DependentUpon>AccountManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\Announcements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\Announcements.Designer.cs">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </Compile>
     <Compile Include="Administrator\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Administrator\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\StudentInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\StudentInfoDialog.Designer.cs">
+      <DependentUpon>StudentInfoDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\StudentManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\StudentManager.Designer.cs">
+      <DependentUpon>StudentManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classess\AccountInfo.cs" />
+    <Compile Include="Classess\Announcement.cs" />
     <Compile Include="Classess\Database.cs" />
     <Compile Include="Classess\WebServer.cs" />
     <Compile Include="Login.cs">
@@ -103,6 +129,24 @@
     <Compile Include="Student\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\Announcements.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\Announcements.Designer.cs">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Subjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Teacher\Subjects.Designer.cs">
+      <DependentUpon>Subjects.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\ItemInfoButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +165,21 @@
     <Compile Include="Usercontrols\PictureButton.Designer.cs">
       <DependentUpon>PictureButton.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Administrator\AccountManager.resx">
+      <DependentUpon>AccountManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\Announcements.resx">
+      <DependentUpon>Announcements.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\StudentInfoDialog.resx">
+      <DependentUpon>StudentInfoDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\StudentManager.resx">
+      <DependentUpon>StudentManager.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +206,12 @@
       <DependentUpon>SubjectInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\Subjects.resx">
+      <DependentUpon>Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\Dashboard.resx">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrols\ItemInfoButton.resx">
@@ -189,9 +254,24 @@
   <ItemGroup>
     <None Include="Resources\Close.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="jsla.sql" />
+    <None Include="Resources\Previous.png" />
+    <None Include="Resources\Next.png" />
+    <None Include="Resources\Save.png" />
+    <None Include="Resources\Reset.png" />
+    <None Include="Resources\Remove.png" />
+    <None Include="Resources\Add.png" />
+    <None Include="Resources\Edit.png" />
+    <None Include="Resources\Data.png" />
+    <None Include="Resources\Accounts.png" />
+    <None Include="Resources\Exit_Dark.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>echo "Test"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

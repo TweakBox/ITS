@@ -355,7 +355,7 @@ public class Database
             while (Reader.Read())
                 cnt++;
 
-            string[,] records = new string[cnt, Reader.FieldCount];
+            object[,] records = new object[cnt, Reader.FieldCount];
             Reader.Close();
 
             Reader = Command.ExecuteReader();
@@ -363,7 +363,7 @@ public class Database
             while (Reader.Read())
             {
                 for (int i2 = 0; i2 < Reader.FieldCount; i2++)
-                    records[i, i2] = Reader[i2].ToString();
+                    records[i, i2] = Reader[i2];
                 i++;
             }
             Reader.Close();

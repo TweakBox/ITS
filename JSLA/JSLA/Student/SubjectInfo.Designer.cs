@@ -83,7 +83,7 @@
             this.groupBox3.Size = new System.Drawing.Size(520, 286);
             this.groupBox3.TabIndex = 1;
             this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Distrubutables";
+            this.groupBox3.Text = "Distributables";
             // 
             // groupBox4
             // 

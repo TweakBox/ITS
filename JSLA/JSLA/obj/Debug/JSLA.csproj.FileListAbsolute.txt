@@ -25,3 +25,10 @@ D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Usercontrols.PictureButton.resource
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Student.SubjectInfo.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Usercontrols.ItemInfoButton.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Student.HomeworkInfo.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Teacher.Dashboard.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Teacher.Subjects.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.AccountManager.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.Dashboard.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.StudentInfoDialog.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.StudentManager.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.Announcements.resources

@@ -38,11 +38,17 @@ namespace JSLA
             else
                 isLoggedIn = false;
 
+            //Thread.Sleep(3000);
+
             if (isOnline && !isLoggedIn)
             {
                 Hide();
                 new Login().ShowDialog(this);
                 Close();
+            }
+            else
+            {
+                MessageBox.Show("Test");
             }
         }
     }
