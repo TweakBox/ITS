@@ -23,15 +23,28 @@ namespace JSLA.Administrator
 
         private void btManageStudent_Click(object sender, EventArgs e)
         {
-            StudentManager sm = new StudentManager(_db)
+            AccountListManager alm = new AccountListManager(_db, AccountListManager.AccountList.Student)
             {
                 TopLevel = false,
                 Dock = DockStyle.Fill
             };
-            sm.FormClosed += childForm_Closed;
+            alm.FormClosed += childForm_Closed;
             Hide();
-            Parent.Controls.Add(sm);
-            sm.Show();
+            Parent.Controls.Add(alm);
+            alm.Show();
+        }
+
+        private void btnManageTeacher_Click(object sender, EventArgs e)
+        {
+            AccountListManager alm = new AccountListManager(_db, AccountListManager.AccountList.Teacher)
+            {
+                TopLevel = false,
+                Dock = DockStyle.Fill
+            };
+            alm.FormClosed += childForm_Closed;
+            Hide();
+            Parent.Controls.Add(alm);
+            alm.Show();
         }
 
         private void childForm_Closed(object sender, EventArgs e)

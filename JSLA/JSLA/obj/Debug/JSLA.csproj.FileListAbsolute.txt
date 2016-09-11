@@ -30,5 +30,6 @@ D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Teacher.Subjects.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.AccountManager.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.Dashboard.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.StudentInfoDialog.resources
-D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.StudentManager.resources
 D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.Announcements.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.AccountListManager.resources
+D:\School Files\ITS\JSLA\JSLA\obj\Debug\JSLA.Administrator.TeacherInfoDialog.resources

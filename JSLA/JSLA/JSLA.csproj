@@ -75,17 +75,17 @@
     <Compile Include="Administrator\StudentInfoDialog.Designer.cs">
       <DependentUpon>StudentInfoDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\StudentManager.cs">
+    <Compile Include="Administrator\AccountListManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\StudentManager.Designer.cs">
-      <DependentUpon>StudentManager.cs</DependentUpon>
+    <Compile Include="Administrator\AccountListManager.Designer.cs">
+      <DependentUpon>AccountListManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\TeacherManager.cs">
+    <Compile Include="Administrator\TeacherInfoDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\TeacherManager.Designer.cs">
-      <DependentUpon>TeacherManager.cs</DependentUpon>
+    <Compile Include="Administrator\TeacherInfoDialog.Designer.cs">
+      <DependentUpon>TeacherInfoDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Classess\AccountInfo.cs" />
     <Compile Include="Classess\Announcement.cs" />
@@ -183,11 +183,11 @@
     <EmbeddedResource Include="Administrator\StudentInfoDialog.resx">
       <DependentUpon>StudentInfoDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrator\StudentManager.resx">
-      <DependentUpon>StudentManager.cs</DependentUpon>
+    <EmbeddedResource Include="Administrator\AccountListManager.resx">
+      <DependentUpon>AccountListManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrator\TeacherManager.resx">
-      <DependentUpon>TeacherManager.cs</DependentUpon>
+    <EmbeddedResource Include="Administrator\TeacherInfoDialog.resx">
+      <DependentUpon>TeacherInfoDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -265,6 +265,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jsla.sql" />
+    <None Include="Resources\Logout.png" />
     <None Include="Resources\Previous.png" />
     <None Include="Resources\Next.png" />
     <None Include="Resources\Save.png" />

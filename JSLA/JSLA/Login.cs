@@ -49,9 +49,9 @@ namespace JSLA
                                 break;
                         }
 
+                        f.FormClosed += child_FormClosed;
                         Hide();
-                        f.ShowDialog();
-                        Close();
+                        f.Show();
                     }
                     else
                     {
@@ -71,6 +71,11 @@ namespace JSLA
                 tbxUserId.Focus();
                 tbxUserId.SelectAll();
             }
+        }
+
+        private void child_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Show();
         }
 
         private void Login_Load(object sender, EventArgs e)
@@ -114,8 +119,9 @@ namespace JSLA
                 {
                     _adminBackdoor = new bool[5];
                     Administrator.Dashboard d = new Administrator.Dashboard(_db, "303030");
+                    d.FormClosed += child_FormClosed;
                     Hide();
-                    d.ShowDialog();
+                    d.Show();
                 }
                 else if (!e.Alt && !e.Control && !e.Shift)
                     _adminBackdoor = new bool[5];

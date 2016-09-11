@@ -47,6 +47,11 @@ namespace JSLA.Administrator
             Application.Exit();
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
         private Classess.AccountInfo fetchUserInfo()
         {
             object[,] result = _db.ScanRecords("tbl_student", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Stud_ID = '" + _id + '\'');
@@ -117,7 +122,7 @@ namespace JSLA.Administrator
                     //f = new Announcements();
                     break;
                 case Actions.AccountManager:
-                    f = new StudentManager(_db);
+                    f = new AccountManager(_db);
                     break;
             }
             f.TopLevel = false;

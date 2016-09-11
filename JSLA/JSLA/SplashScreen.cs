@@ -43,13 +43,10 @@ namespace JSLA
             if (isOnline && !isLoggedIn)
             {
                 Hide();
-                new Login().ShowDialog(this);
-                Close();
+                new Login().Show();
             }
             else
-            {
                 MessageBox.Show("Test");
-            }
         }
     }
 }
