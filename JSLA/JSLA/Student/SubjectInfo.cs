@@ -43,7 +43,7 @@ namespace JSLA.Student
         private void fetchHomeworks()
         {
             string section = _db.ScanRecordScalar("tbl_student", "Section_Id", "Stud_Id = '" + _account.UserId + '\'');
-            string[,] results = _db.ScanRecords("tbl_homework", new string[] { "Title", "DateDue", "Content", "Homework_Id" }, "Subject_Id = '" + _subjectId + "' and Section_Id = '" + section + "' and DateDue > '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + '\'');
+            object[,] results = _db.ScanRecords("tbl_homework", new string[] { "Title", "DateDue", "Content", "Homework_Id" }, "Subject_Id = '" + _subjectId + "' and Section_Id = '" + section + "' and DateDue > '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + '\'');
 
             flpHomeworks.Controls.Clear();
             if (results.GetLength(0) > 0)
@@ -52,9 +52,9 @@ namespace JSLA.Student
                 {
                     Usercontrols.ItemInfoButton iib = new Usercontrols.ItemInfoButton()
                     {
-                        Title = results[i, 0],
-                        Subtitle = "Due: " + DateTime.Parse(results[i, 1]).ToLongDateString(),
-                        Description = results[i, 2],
+                        Title = results[i, 0].ToString(),
+                        Subtitle = "Due: " + DateTime.Parse(results[i, 1].ToString()).ToLongDateString(),
+                        Description = results[i, 2].ToString(),
                         Tag = results[i, 3],
                         Width = flpHomeworks.Width
                     };

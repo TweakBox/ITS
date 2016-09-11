@@ -30,13 +30,13 @@ namespace JSLA.Student
 
         private void HomeworkInfo_Load(object sender, EventArgs e)
         {
-            string[,] result = _db.ScanRecords("tbl_homework", new string[] { "Title", "Content", "DatePosted", "DateDue" }, "Homework_Id = '" + _id + '\'');
+            object[,] result = _db.ScanRecords("tbl_homework", new string[] { "Title", "Content", "DatePosted", "DateDue" }, "Homework_Id = '" + _id + '\'');
 
             tbxId.Text = _id;
-            tbxTitle.Text = result[0, 0];
-            tbxDescription.Text = result[0, 1];
-            tbxPosted.Text = result[0, 2];
-            tbxDue.Text = result[0, 3];
+            tbxTitle.Text = result[0, 0].ToString();
+            tbxDescription.Text = result[0, 1].ToString();
+            tbxPosted.Text = result[0, 2].ToString();
+            tbxDue.Text = result[0, 3].ToString();
         }
     }
 }

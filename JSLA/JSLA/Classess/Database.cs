@@ -73,7 +73,7 @@ public class Database
     /// <param name="columns">The specific columns to be returned.</param>
     /// <param name="condition">The condition to be applied for retrieving the result</param>
     /// <returns>The scanned records.</returns>
-    public string[,] ScanRecords(string table, string[] columns, string condition)
+    public object[,] ScanRecords(string table, string[] columns, string condition)
     {
         string selectedColumns = columns[0];
         for (int i = 1; i < columns.Length; i++)
@@ -87,7 +87,7 @@ public class Database
             while (Reader.Read())
                 cnt++;
 
-            string[,] records = new string[cnt, Reader.FieldCount];
+            object[,] records = new object[cnt, Reader.FieldCount];
             Reader.Close();
 
             Reader = Command.ExecuteReader();
@@ -95,7 +95,7 @@ public class Database
             while (Reader.Read())
             {
                 for (int i2 = 0; i2 < Reader.FieldCount; i2++)
-                    records[i, i2] = Reader[i2].GetType().Name != "DateTime" ? Reader[i2].ToString() : DateTime.Parse(Reader[i2].ToString()).ToString("yyyy-MM-d");
+                    records[i, i2] = Reader[i2];
                 i++;
             }
             Reader.Close();
@@ -105,7 +105,7 @@ public class Database
         else
         {
             Reader.Close();
-            return new string[0, 0];
+            return new object[0, 0];
         }
     }
 
@@ -115,7 +115,7 @@ public class Database
     /// <param name="table">The table to be scanned.</param>
     /// <param name="columns">The specific columns to be returned.</param>
     /// <returns>The scanned records.</returns>
-    public string[,] ScanRecords(string table, params string[] columns)
+    public object[,] ScanRecords(string table, params string[] columns)
     {
         string selectedColumns = columns[0];
         for (int i = 1; i < columns.Length; i++)
@@ -129,7 +129,7 @@ public class Database
             while (Reader.Read())
                 cnt++;
 
-            string[,] records = new string[cnt, Reader.FieldCount];
+            object[,] records = new object[cnt, Reader.FieldCount];
             Reader.Close();
 
             Reader = Command.ExecuteReader();
@@ -137,7 +137,7 @@ public class Database
             while (Reader.Read())
             {
                 for (int i2 = 0; i2 < Reader.FieldCount; i2++)
-                    records[i, i2] = Reader[i2].ToString();
+                    records[i, i2] = Reader[i2];
                 i++;
             }
             Reader.Close();
@@ -147,7 +147,7 @@ public class Database
         else
         {
             Reader.Close();
-            return new string[0, 0];
+            return new object[0, 0];
         }
     }
 
@@ -156,7 +156,7 @@ public class Database
     /// </summary>
     /// <param name="table">The table to be scanned.</param>
     /// <returns>The scanned records.</returns>
-    public string[,] ScanRecords(string table)
+    public object[,] ScanRecords(string table)
     {
 
         Command.CommandText = "select * from " + table;
@@ -167,7 +167,7 @@ public class Database
             while (Reader.Read())
                 cnt++;
 
-            string[,] records = new string[cnt, Reader.FieldCount];
+            object[,] records = new object[cnt, Reader.FieldCount];
             Reader.Close();
 
             Reader = Command.ExecuteReader();
@@ -175,7 +175,7 @@ public class Database
             while (Reader.Read())
             {
                 for (int i2 = 0; i2 < Reader.FieldCount; i2++)
-                    records[i, i2] = Reader[i2].ToString();
+                    records[i, i2] = Reader[i2];
                 i++;
             }
             Reader.Close();
@@ -185,7 +185,7 @@ public class Database
         else
         {
             Reader.Close();
-            return new string[0, 0];
+            return new object[0, 0];
         }
     }
 
@@ -373,7 +373,7 @@ public class Database
         else
         {
             Reader.Close();
-            return new string[0, 0];
+            return new object[0, 0];
         }
     }
 }

@@ -46,6 +46,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.tbxSearch = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.SuspendLayout();
             // 
             // label1
@@ -72,13 +73,19 @@
             this.columnHeader7,
             this.columnHeader8,
             this.columnHeader9,
-            this.columnHeader10});
+            this.columnHeader10,
+            this.columnHeader5});
+            this.lvwStudents.FullRowSelect = true;
+            this.lvwStudents.GridLines = true;
+            this.lvwStudents.HideSelection = false;
             this.lvwStudents.Location = new System.Drawing.Point(12, 90);
+            this.lvwStudents.MultiSelect = false;
             this.lvwStudents.Name = "lvwStudents";
             this.lvwStudents.Size = new System.Drawing.Size(776, 400);
             this.lvwStudents.TabIndex = 1;
             this.lvwStudents.UseCompatibleStateImageBehavior = false;
             this.lvwStudents.View = System.Windows.Forms.View.Details;
+            this.lvwStudents.SelectedIndexChanged += new System.EventHandler(this.lvwStudents_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -232,6 +239,11 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Search:";
             // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Status";
+            this.columnHeader5.Width = 150;
+            // 
             // StudentManager
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -250,7 +262,7 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StudentManager";
-            this.Text = "S";
+            this.Text = "s";
             this.Load += new System.EventHandler(this.StudentManager_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -277,5 +289,6 @@
         private System.Windows.Forms.Button btnReset;
         private System.Windows.Forms.TextBox tbxSearch;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

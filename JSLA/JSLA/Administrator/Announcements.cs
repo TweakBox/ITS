@@ -29,19 +29,32 @@ namespace JSLA.Administrator
         {
             object[,] result = _db.ExecuteQuery("select _id, Title, Poster from tbl_announcements where Status = 'Active'");
 
-            _announcementList.Clear();
-            for (int i = 0; i < result.GetLength(0); i++)
+            if (result.GetLength(0) > 0)
             {
-                Classess.Announcement a = new Classess.Announcement();
-                a.ID = int.Parse(result[i, 0].ToString());
-                a.Title = result[i, 1].ToString();
+                _announcementList.Clear();
+                for (int i = 0; i < result.GetLength(0); i++)
+                {
+                    Classess.Announcement a = new Classess.Announcement();
+                    a.ID = int.Parse(result[i, 0].ToString());
+                    a.Title = result[i, 1].ToString();
 
-                byte[] data = (byte[])result[i, 2];
-                a.Poster = Image.FromStream(new MemoryStream(data));
-                _announcementList.Add(a);
+                    byte[] data = (byte[])result[i, 2];
+                    a.Poster = Image.FromStream(new MemoryStream(data));
+                    _announcementList.Add(a);
+                }
+
+                displayPoster(index);
             }
-
-            displayPoster(index);
+            else
+            {
+                btnNext.Enabled = false;
+                btnPrevious.Enabled = false;
+                llbFastforward.Enabled = false;
+                llbNext.Enabled = false;
+                llbRewind.Enabled = false;
+                llbPrevious.Enabled = false;
+                timer1.Stop();
+            }
         }
 
         private void displayPoster(int index)

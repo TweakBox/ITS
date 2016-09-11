@@ -84,12 +84,12 @@ namespace JSLA.Teacher
 
         private Classess.AccountInfo fetchUserInfo()
         {
-            string[,] result = _db.ScanRecords("tbl_teachers", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Teacher_Id = '" + _id + '\'');
+            object[,] result = _db.ScanRecords("tbl_teachers", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Teacher_Id = '" + _id + '\'');
             return _accountInfo = new Classess.AccountInfo(
                 _id,
-                result[0, 0],
-                result[0, 1],
-                result[0, 2],
+                result[0, 0].ToString(),
+                result[0, 1].ToString(),
+                result[0, 2].ToString(),
                 Classess.AccountInfo.AccountTypeEnum.Teacher,
                 null//result[0, 3]
                 );

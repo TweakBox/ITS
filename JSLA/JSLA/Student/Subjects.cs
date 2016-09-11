@@ -28,7 +28,7 @@ namespace JSLA.Student
             //homeworks
             //...
 
-            string[,] result = _db.ScanRecords("tbl_subject", "Subject_ID", "Subject_Name");
+            object[,] result = _db.ScanRecords("tbl_subject", "Subject_ID", "Subject_Name");
             for (int i = 0; i < result.GetLength(0); i++)
             {
                 Random r = new Random();
@@ -37,7 +37,7 @@ namespace JSLA.Student
                 Usercontrols.PictureButton pb = new Usercontrols.PictureButton()
                 {
                     Tag = result[i, 0],
-                    Title = result[i, 1],
+                    Title = result[i, 1].ToString(),
                     Count = r.Next(5),
                     BackColor = c,
                     ForeColor = Color.White

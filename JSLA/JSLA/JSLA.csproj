@@ -81,6 +81,12 @@
     <Compile Include="Administrator\StudentManager.Designer.cs">
       <DependentUpon>StudentManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\TeacherManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\TeacherManager.Designer.cs">
+      <DependentUpon>TeacherManager.cs</DependentUpon>
+    </Compile>
     <Compile Include="Classess\AccountInfo.cs" />
     <Compile Include="Classess\Announcement.cs" />
     <Compile Include="Classess\Database.cs" />
@@ -179,6 +185,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\StudentManager.resx">
       <DependentUpon>StudentManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\TeacherManager.resx">
+      <DependentUpon>TeacherManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

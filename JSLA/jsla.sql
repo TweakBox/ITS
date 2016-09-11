@@ -1,403 +1,389 @@
--- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
---
--- Host: 127.0.0.1
--- Generation Time: Sep 08, 2016 at 11:20 AM
--- Server version: 10.1.13-MariaDB
--- PHP Version: 5.6.23
+/*
+Navicat MySQL Data Transfer
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
+Source Server         : localhost
+Source Server Version : 50505
+Source Host           : 127.0.0.1:3306
+Source Database       : jsla
 
+Target Server Type    : MYSQL
+Target Server Version : 50505
+File Encoding         : 65001
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+Date: 2016-09-12 01:43:01
+*/
 
---
--- Database: `jsla`
---
+SET FOREIGN_KEY_CHECKS=0;
 
--- --------------------------------------------------------
-
---
--- Table structure for table `meta_file`
---
-
-CREATE TABLE `meta_file` (
-  `File_ID` varchar(9) NOT NULL,
-  `Title` varchar(20) NOT NULL,
-  `SubjectIID` varchar(9) NOT NULL,
-  `Description` text NOT NULL,
-  `UploadedBy` varchar(9) NOT NULL,
-  `UploadedTo` varchar(9) NOT NULL,
-  `FilePath` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tblquizinfo`
---
-
-CREATE TABLE `tblquizinfo` (
-  `QuizID` varchar(9) NOT NULL,
-  `QuizTitle` varchar(255) DEFAULT NULL,
-  `SubjectID` varchar(9) DEFAULT NULL,
-  `TeacherID` varchar(9) DEFAULT NULL,
-  `quizType` varchar(255) DEFAULT NULL,
-  `Year` varchar(255) DEFAULT NULL,
-  `SectionID` varchar(9) DEFAULT NULL,
-  `No.ofItem` int(11) DEFAULT NULL,
-  `Points` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_accounts`
---
-
+-- ----------------------------
+-- Table structure for tbl_accounts
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_accounts`;
 CREATE TABLE `tbl_accounts` (
-  `UserId` varchar(9) NOT NULL,
-  `Password` varchar(10) DEFAULT NULL,
-  `AccType` varchar(25) DEFAULT NULL,
-  `ReferenceId` varchar(255) DEFAULT NULL,
-  `Attempts` int(11) DEFAULT '0'
+  `_id` int(11) NOT NULL,
+  `password` varchar(255) DEFAULT NULL,
+  `user_level` varchar(255) DEFAULT NULL,
+  `attempts` int(11) DEFAULT '0',
+  `reference_id` varchar(10) DEFAULT NULL,
+  `oldpassword` varchar(255) DEFAULT 'true',
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_accounts`
---
+-- ----------------------------
+-- Records of tbl_accounts
+-- ----------------------------
+INSERT INTO `tbl_accounts` VALUES ('1', '1', 'Student', '0', '1', 'true');
+INSERT INTO `tbl_accounts` VALUES ('2', '2', 'Student', '0', '2', 'true');
+INSERT INTO `tbl_accounts` VALUES ('3', '3', 'Student', '0', '3', 'true');
+INSERT INTO `tbl_accounts` VALUES ('4', '4', 'Student', '0', '4', 'true');
+INSERT INTO `tbl_accounts` VALUES ('5', '5', 'Student', '0', '5', 'true');
+INSERT INTO `tbl_accounts` VALUES ('6', '6', 'Student', '0', '6', 'true');
+INSERT INTO `tbl_accounts` VALUES ('7', '7', 'Student', '0', '7', 'true');
+INSERT INTO `tbl_accounts` VALUES ('8', '8', 'Student', '0', '8', 'true');
+INSERT INTO `tbl_accounts` VALUES ('9', '9', 'Student', '0', '9', 'true');
+INSERT INTO `tbl_accounts` VALUES ('10', '10', 'Student', '0', '10', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000001', '1', 'Teacher', '0', '1000000001', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000002', '2', 'Teacher', '0', '1000000002', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000003', '3', 'Teacher', '0', '1000000003', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000004', '4', 'Teacher', '0', '1000000004', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000005', '5', 'Teacher', '0', '1000000005', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000006', '6', 'Teacher', '0', '1000000006', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000007', '7', 'Teacher', '0', '1000000007', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000008', '8', 'Teacher', '0', '1000000008', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000009', '9', 'Teacher', '0', '1000000009', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000010', '10', 'Teacher', '0', '1000000010', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000011', '11', 'Teacher', '0', '1000000011', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000012', '12', 'Teacher', '0', '1000000012', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000013', '13', 'Teacher', '0', '1000000013', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000014', '14', 'Teacher', '0', '1000000014', 'true');
+INSERT INTO `tbl_accounts` VALUES ('1000000015', '15', 'Teacher', '0', '1000000015', 'true');
 
-INSERT INTO `tbl_accounts` (`UserId`, `Password`, `AccType`, `ReferenceId`, `Attempts`) VALUES
-('123123123', '123123123', 'Student', '123123123', 0),
-('202020', '222222', 'Teacher', NULL, 0),
-('303030', '333333', 'Admin', NULL, 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_course`
---
-
-CREATE TABLE `tbl_course` (
-  `CourseID` varchar(9) NOT NULL,
-  `Course` varchar(255) DEFAULT NULL,
-  `Description` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_course`
---
-
-INSERT INTO `tbl_course` (`CourseID`, `Course`, `Description`) VALUES
-('1', 'ICT', NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_homeroom`
---
-
-CREATE TABLE `tbl_homeroom` (
-  `HomeRoomID` varchar(9) NOT NULL,
-  `SectionID` varchar(9) DEFAULT NULL,
-  `Year` varchar(25) DEFAULT NULL,
-  `Adviser` varchar(255) DEFAULT NULL,
-  `Room` varchar(5) DEFAULT NULL,
-  `No.ofStudent` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_homework`
---
-
-CREATE TABLE `tbl_homework` (
-  `Homework_Id` int(11) NOT NULL,
+-- ----------------------------
+-- Table structure for tbl_announcements
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_announcements`;
+CREATE TABLE `tbl_announcements` (
+  `_id` int(11) NOT NULL,
+  `DatePosted` datetime DEFAULT NULL,
   `Title` varchar(255) DEFAULT NULL,
-  `Content` varchar(255) DEFAULT NULL,
-  `Teacher_Id` varchar(9) DEFAULT NULL,
-  `Section_Id` int(11) DEFAULT NULL,
-  `Subject_Id` int(11) DEFAULT NULL,
-  `DatePosted` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `DateDue` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `Poster` blob,
+  `Status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_homework`
---
+-- ----------------------------
+-- Records of tbl_announcements
+-- ----------------------------
 
-INSERT INTO `tbl_homework` (`Homework_Id`, `Title`, `Content`, `Teacher_Id`, `Section_Id`, `Subject_Id`, `DatePosted`, `DateDue`) VALUES
-(1, 'Earth''s Composition', 'Research about the Earth''s soil composition', '303030', 1, 3, '2016-09-06 01:29:43', '2016-09-09 01:29:46'),
-(2, 'kasdkadk', 'asdakjsdkahd', '202020', 1, 3, '2016-09-06 01:30:05', '2016-09-19 01:30:09'),
-(3, 'asdadasdasdasdad,dkjadhahdkjhkahdkahkdakd', 'ad', '202020', 1, 3, '2016-09-06 01:30:31', '2016-09-16 01:30:36');
+-- ----------------------------
+-- Table structure for tbl_branchinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_branchinfo`;
+CREATE TABLE `tbl_branchinfo` (
+  `_id` int(11) NOT NULL,
+  `Branch` varchar(255) DEFAULT NULL,
+  `Address` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of tbl_branchinfo
+-- ----------------------------
 
---
--- Table structure for table `tbl_notes`
---
+-- ----------------------------
+-- Table structure for tbl_classlist
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_classlist`;
+CREATE TABLE `tbl_classlist` (
+  `_id` int(11) NOT NULL,
+  `Section_id` int(11) DEFAULT NULL,
+  `Student_no` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE TABLE `tbl_notes` (
-  `Note_ID` varchar(9) NOT NULL,
-  `Subject_ID` int(11) DEFAULT NULL,
-  `Stud_ID` varchar(9) DEFAULT NULL,
+-- ----------------------------
+-- Records of tbl_classlist
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_homeworkpassed
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_homeworkpassed`;
+CREATE TABLE `tbl_homeworkpassed` (
+  `_id` int(11) NOT NULL,
+  `Homework_id` int(11) DEFAULT NULL,
+  `Student_id` int(11) DEFAULT NULL,
+  `ContentFile` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbl_homeworkpassed
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_priviledge
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_priviledge`;
+CREATE TABLE `tbl_priviledge` (
+  `_id` int(11) NOT NULL,
+  `Priviledge` varchar(255) DEFAULT NULL,
+  `User_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbl_priviledge
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_quizanswer
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_quizanswer`;
+CREATE TABLE `tbl_quizanswer` (
+  `_id` int(11) NOT NULL,
+  `Quiz_id` int(11) DEFAULT NULL,
+  `Student_id` int(11) DEFAULT NULL,
+  `Score` varchar(255) DEFAULT NULL,
+  `Answers` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbl_quizanswer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_quizcontent
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_quizcontent`;
+CREATE TABLE `tbl_quizcontent` (
+  `_id` int(11) NOT NULL,
+  `Question` varchar(255) DEFAULT NULL,
+  `CorrectAnswer` varchar(255) DEFAULT NULL,
+  `QuestionType` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of tbl_quizcontent
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for tbl_quizinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_quizinfo`;
+CREATE TABLE `tbl_quizinfo` (
+  `_id` int(11) NOT NULL,
   `Title` varchar(255) DEFAULT NULL,
-  `Content` text
+  `Class_id` int(11) DEFAULT NULL,
+  `QuizType` varchar(255) DEFAULT NULL,
+  `No.ofItem` varchar(255) DEFAULT NULL,
+  `Points` varchar(255) DEFAULT NULL,
+  `DatePosted` datetime DEFAULT NULL,
+  `DateDue` datetime DEFAULT NULL,
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of tbl_quizinfo
+-- ----------------------------
 
---
--- Table structure for table `tbl_sections`
---
-
-CREATE TABLE `tbl_sections` (
-  `Section_ID` int(11) NOT NULL,
+-- ----------------------------
+-- Table structure for tbl_sectioninfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_sectioninfo`;
+CREATE TABLE `tbl_sectioninfo` (
+  `_id` int(11) NOT NULL,
   `Section` varchar(255) DEFAULT NULL,
-  `Course_ID` varchar(255) DEFAULT NULL,
-  `Year` int(11) DEFAULT NULL
+  `Yearlevel` varchar(255) DEFAULT NULL,
+  `Track_ID` varchar(255) DEFAULT NULL,
+  `Branch` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_sections`
---
+-- ----------------------------
+-- Records of tbl_sectioninfo
+-- ----------------------------
+INSERT INTO `tbl_sectioninfo` VALUES ('1', 'STEM101', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('2', 'STEM102', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('3', 'STEM103', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('4', 'GAS101', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('5', 'ABM101', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('6', 'ABM102', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('7', 'HE101', '11', null, null);
+INSERT INTO `tbl_sectioninfo` VALUES ('8', 'ICT101', '11', null, null);
 
-INSERT INTO `tbl_sections` (`Section_ID`, `Section`, `Course_ID`, `Year`) VALUES
-(1, 'Integrity', '1', 9),
-(2, 'Fortitude', '1', 10),
-(3, 'Piety', '1', 10);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_student`
---
-
-CREATE TABLE `tbl_student` (
-  `Stud_ID` varchar(9) NOT NULL,
-  `LastName` varchar(255) NOT NULL,
-  `FirstName` varchar(255) NOT NULL,
-  `MiddleName` varchar(255) DEFAULT NULL,
-  `Section_ID` int(11) NOT NULL,
-  `Avatar` blob
+-- ----------------------------
+-- Table structure for tbl_studentinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_studentinfo`;
+CREATE TABLE `tbl_studentinfo` (
+  `_id` varchar(255) NOT NULL,
+  `Lastname` varchar(255) DEFAULT NULL,
+  `Firstname` varchar(255) DEFAULT NULL,
+  `Middlename` varchar(255) DEFAULT NULL,
+  `Gender` varchar(255) DEFAULT NULL,
+  `GLastname` varchar(255) DEFAULT NULL,
+  `GFirstname` varchar(255) DEFAULT NULL,
+  `GMiddlename` varchar(255) DEFAULT NULL,
+  `GContact` int(11) DEFAULT NULL,
+  `Status` varchar(255) DEFAULT NULL,
+  `Avatar` blob,
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_student`
---
+-- ----------------------------
+-- Records of tbl_studentinfo
+-- ----------------------------
+INSERT INTO `tbl_studentinfo` VALUES ('1', 'Alde', 'Alken', 'Abadiez', 'Male', 'Alde', 'Leonila', null, '903245698', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('10', 'Dael', 'Dave John', 'Zabala', 'Male', 'Zabala', 'Ana Marie ', 'Trinio', '905942080', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('2', 'Anchuelo', 'Avy Liezel', 'Bonavente', 'Female', 'Anchuelo', 'Roda', null, '6659784', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('3', 'Andres', 'Jan Ashley', 'Villegas', 'Male', 'Andres', 'Joel', 'Cruz', '906202425', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('4', 'Aquino', 'Eugene', 'Saniel', 'Male', 'Aquino', 'Rene', null, '6619874', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('5', 'Buendia', 'Ram Andrew', 'Guibani', 'Male', 'Buendia', 'Carla ', 'Santos', '6548791', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('6', 'Buenviaje', 'John Andrei', 'Bas', 'Male', 'Buenviaje', 'Susan', 'Deso', '6978456', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('7', ' Bulan', 'Alyssa Mae', 'Aquino', 'Female', 'Bulan', 'Bituin', 'Aquino', '917999656', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('8', 'Cansino', 'Lyyana Kayle', 'Borja', 'Female', 'Cansino', 'Bueno', null, '6349785', 'Active', null);
+INSERT INTO `tbl_studentinfo` VALUES ('9', 'Cruz', 'Irine Claire', 'Borja', 'Female', 'Cruz', 'Henry', 'Vallestero', '926555689', 'Active', null);
 
-INSERT INTO `tbl_student` (`Stud_ID`, `LastName`, `FirstName`, `MiddleName`, `Section_ID`, `Avatar`) VALUES
-('#####-###', 'aga', 'gaga', 'gaga', 1, NULL),
-('000000000', 'Ortiz', 'Patricia', NULL, 1, NULL),
-('101010101', 'Balabis', 'Joyce', 'Mir', 1, NULL),
-('123123123', 'Okura', 'Ryota', 'Borja', 1, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_subject`
---
-
-CREATE TABLE `tbl_subject` (
-  `Subject_ID` int(11) NOT NULL,
-  `Subject_Code` varchar(255) DEFAULT NULL,
-  `Subject_Name` varchar(25) DEFAULT NULL,
-  `Year` varchar(25) DEFAULT NULL,
-  `CourseID` varchar(9) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_subject`
---
-
-INSERT INTO `tbl_subject` (`Subject_ID`, `Subject_Code`, `Subject_Name`, `Year`, `CourseID`) VALUES
-(1, NULL, 'Oral Communication', NULL, NULL),
-(2, NULL, 'Earth & Life Science', NULL, NULL),
-(3, NULL, 'Earth Science', NULL, NULL),
-(4, NULL, 'Literature', NULL, NULL),
-(5, NULL, 'Multimedia', NULL, NULL),
-(6, NULL, 'Programming', NULL, NULL),
-(7, NULL, 'Animation', NULL, NULL),
-(8, NULL, '21st Century', NULL, NULL),
-(9, NULL, 'Physical Education', NULL, NULL),
-(10, NULL, 'Business Math', NULL, NULL),
-(11, NULL, 'General Math', NULL, NULL),
-(12, NULL, 'Pre-Calculus', NULL, NULL),
-(13, NULL, 'Differential Calculus', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_teachers`
---
-
-CREATE TABLE `tbl_teachers` (
-  `Teacher_Id` varchar(9) NOT NULL,
-  `LastName` varchar(25) NOT NULL,
-  `FirstName` varchar(25) NOT NULL,
-  `MiddleInitial` varchar(3) DEFAULT NULL,
-  `Avatar` varchar(255) DEFAULT NULL,
-  `Status` varchar(10) NOT NULL
+-- ----------------------------
+-- Table structure for tbl_studentupload
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_studentupload`;
+CREATE TABLE `tbl_studentupload` (
+  `_id` int(11) NOT NULL,
+  `FileName` varchar(255) DEFAULT NULL,
+  `Subject_id` int(11) DEFAULT NULL,
+  `Section_id` int(11) DEFAULT NULL,
+  `FileAddress` varchar(255) DEFAULT NULL,
+  `Staff_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `tbl_teachers`
---
+-- ----------------------------
+-- Records of tbl_studentupload
+-- ----------------------------
 
-INSERT INTO `tbl_teachers` (`Teacher_Id`, `LastName`, `FirstName`, `MiddleInitial`, `Avatar`, `Status`) VALUES
-('202020', 'balabis', 'joyce', 'm', NULL, ''),
-('303030', 'albania', 'eman', 'l', NULL, '');
+-- ----------------------------
+-- Table structure for tbl_subjectinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_subjectinfo`;
+CREATE TABLE `tbl_subjectinfo` (
+  `_id` int(11) NOT NULL,
+  `Subject` varchar(255) DEFAULT NULL,
+  `Yearlevel` varchar(255) DEFAULT NULL,
+  `Track_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`),
+  KEY `Track_id` (`Track_id`),
+  CONSTRAINT `tbl_subjectinfo_ibfk_1` FOREIGN KEY (`Track_id`) REFERENCES `tbl_trackinfo` (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of tbl_subjectinfo
+-- ----------------------------
+INSERT INTO `tbl_subjectinfo` VALUES ('1', 'General Mathematics', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('2', '21st Century Literary from the Philippines and the World', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('3', 'Media Information and Literacy', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('4', 'Introduction to the Philosophy of the Human Person', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('5', 'Earth and Life Science', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('6', 'Physical Education and Health 1', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('7', 'Organization and Management', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('8', 'Business Mathematics', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('9', 'Pre-Calculus', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('10', 'Elective 1 (Animation)', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('11', 'Elective 1* HUMS- Introduction to the World Religions and Belief Systems', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('12', 'Programming C++', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('13', 'Cookery 1', '11', null);
+INSERT INTO `tbl_subjectinfo` VALUES ('14', 'Bread and Pastry', '11', null);
 
---
--- Stand-in structure for view `vw_studentinfo`
---
-CREATE TABLE `vw_studentinfo` (
-`Stud_ID` varchar(9)
-,`LastName` varchar(255)
-,`FirstName` varchar(255)
-,`MiddleName` varchar(255)
-,`Section` varchar(255)
-,`Course` varchar(255)
-,`Year` int(11)
-);
+-- ----------------------------
+-- Table structure for tbl_teacherclass
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_teacherclass`;
+CREATE TABLE `tbl_teacherclass` (
+  `_ID` int(11) NOT NULL,
+  `Subject_id` int(11) DEFAULT NULL,
+  `Section_id` int(11) DEFAULT NULL,
+  `Faculty_id` int(11) DEFAULT NULL,
+  `SchoolYear` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- --------------------------------------------------------
+-- ----------------------------
+-- Records of tbl_teacherclass
+-- ----------------------------
 
---
--- Structure for view `vw_studentinfo`
---
-DROP TABLE IF EXISTS `vw_studentinfo`;
+-- ----------------------------
+-- Table structure for tbl_teacherinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_teacherinfo`;
+CREATE TABLE `tbl_teacherinfo` (
+  `_id` varchar(255) NOT NULL,
+  `Lastname` varchar(255) DEFAULT NULL,
+  `Firstname` varchar(255) DEFAULT NULL,
+  `Middlename` varchar(255) DEFAULT NULL,
+  `Gender` varchar(255) DEFAULT NULL,
+  `Avatar` varchar(255) DEFAULT NULL,
+  `Status` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_studentinfo`  AS  select `tbl_student`.`Stud_ID` AS `Stud_ID`,`tbl_student`.`LastName` AS `LastName`,`tbl_student`.`FirstName` AS `FirstName`,`tbl_student`.`MiddleName` AS `MiddleName`,`tbl_sections`.`Section` AS `Section`,`tbl_course`.`Course` AS `Course`,`tbl_sections`.`Year` AS `Year` from ((`tbl_student` join `tbl_sections` on((`tbl_student`.`Section_ID` = `tbl_sections`.`Section_ID`))) join `tbl_course` on((`tbl_sections`.`Course_ID` = `tbl_course`.`CourseID`))) ;
+-- ----------------------------
+-- Records of tbl_teacherinfo
+-- ----------------------------
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000001', 'Del Rosario', 'Michelle', 'F', 'Female', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000002', 'Libramonte', 'Roel', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000003', 'Almocera', 'Florence Nicole', null, null, null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000004', 'Pajarillo', 'Jose Alfredo', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000005', 'Rondilla', 'Carizza', null, 'Female', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000006', 'Bendana', 'Arleth', 'A', 'Female', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000007', 'Chua', 'Denis', null, 'Female', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000008', 'Antonil', 'Norman', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000009', 'Apid', 'Alwen', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000010', 'Camacho', 'Marvin', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000011', 'Francisco', 'John Paul', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000012', 'Quintal', 'Enrico', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000013', 'Ojeda', 'Dominic', null, 'Male', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000014', 'De Vera', 'Ma. Jocelyn', 'A', 'Female', null, 'Active');
+INSERT INTO `tbl_teacherinfo` VALUES ('1000000015', 'Domiguez', 'Brian Tracy', null, 'Male', null, 'Active');
 
---
--- Indexes for dumped tables
---
+-- ----------------------------
+-- Table structure for tbl_teacherupload
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_teacherupload`;
+CREATE TABLE `tbl_teacherupload` (
+  `_id` int(11) NOT NULL,
+  `FileName` varchar(255) DEFAULT NULL,
+  `Subject_id` int(11) DEFAULT NULL,
+  `Section_id` int(11) DEFAULT NULL,
+  `FileAddress` varchar(255) DEFAULT NULL,
+  `Staff_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for table `meta_file`
---
-ALTER TABLE `meta_file`
-  ADD PRIMARY KEY (`File_ID`);
+-- ----------------------------
+-- Records of tbl_teacherupload
+-- ----------------------------
 
---
--- Indexes for table `tblquizinfo`
---
-ALTER TABLE `tblquizinfo`
-  ADD PRIMARY KEY (`QuizID`);
+-- ----------------------------
+-- Table structure for tbl_trackinfo
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_trackinfo`;
+CREATE TABLE `tbl_trackinfo` (
+  `_id` int(11) NOT NULL,
+  `Track` varchar(255) DEFAULT NULL,
+  `Branch_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`_id`),
+  KEY `Branch_id` (`Branch_id`),
+  CONSTRAINT `tbl_trackinfo_ibfk_1` FOREIGN KEY (`Branch_id`) REFERENCES `tbl_branchinfo` (`_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for table `tbl_accounts`
---
-ALTER TABLE `tbl_accounts`
-  ADD PRIMARY KEY (`UserId`);
-
---
--- Indexes for table `tbl_course`
---
-ALTER TABLE `tbl_course`
-  ADD PRIMARY KEY (`CourseID`);
-
---
--- Indexes for table `tbl_homeroom`
---
-ALTER TABLE `tbl_homeroom`
-  ADD PRIMARY KEY (`HomeRoomID`);
-
---
--- Indexes for table `tbl_homework`
---
-ALTER TABLE `tbl_homework`
-  ADD PRIMARY KEY (`Homework_Id`),
-  ADD KEY `Teacher_Id` (`Teacher_Id`),
-  ADD KEY `Subject_Id` (`Subject_Id`),
-  ADD KEY `Section_Id` (`Section_Id`);
-
---
--- Indexes for table `tbl_notes`
---
-ALTER TABLE `tbl_notes`
-  ADD PRIMARY KEY (`Note_ID`),
-  ADD KEY `Subject_ID` (`Subject_ID`);
-
---
--- Indexes for table `tbl_sections`
---
-ALTER TABLE `tbl_sections`
-  ADD PRIMARY KEY (`Section_ID`),
-  ADD KEY `Course_ID` (`Course_ID`);
-
---
--- Indexes for table `tbl_student`
---
-ALTER TABLE `tbl_student`
-  ADD PRIMARY KEY (`Stud_ID`),
-  ADD KEY `Section_ID` (`Section_ID`);
-
---
--- Indexes for table `tbl_subject`
---
-ALTER TABLE `tbl_subject`
-  ADD PRIMARY KEY (`Subject_ID`);
-
---
--- Indexes for table `tbl_teachers`
---
-ALTER TABLE `tbl_teachers`
-  ADD PRIMARY KEY (`Teacher_Id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `tbl_homework`
---
-ALTER TABLE `tbl_homework`
-  MODIFY `Homework_Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tbl_subject`
---
-ALTER TABLE `tbl_subject`
-  MODIFY `Subject_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `tbl_homework`
---
-ALTER TABLE `tbl_homework`
-  ADD CONSTRAINT `tbl_homework_ibfk_1` FOREIGN KEY (`Teacher_Id`) REFERENCES `tbl_teachers` (`Teacher_Id`),
-  ADD CONSTRAINT `tbl_homework_ibfk_3` FOREIGN KEY (`Subject_Id`) REFERENCES `tbl_subject` (`Subject_ID`),
-  ADD CONSTRAINT `tbl_homework_ibfk_4` FOREIGN KEY (`Section_Id`) REFERENCES `tbl_sections` (`Section_ID`);
-
---
--- Constraints for table `tbl_notes`
---
-ALTER TABLE `tbl_notes`
-  ADD CONSTRAINT `tbl_notes_ibfk_1` FOREIGN KEY (`Subject_ID`) REFERENCES `tbl_subject` (`Subject_ID`);
-
---
--- Constraints for table `tbl_sections`
---
-ALTER TABLE `tbl_sections`
-  ADD CONSTRAINT `tbl_sections_ibfk_1` FOREIGN KEY (`Course_ID`) REFERENCES `tbl_course` (`CourseID`);
-
---
--- Constraints for table `tbl_student`
---
-ALTER TABLE `tbl_student`
-  ADD CONSTRAINT `tbl_student_ibfk_1` FOREIGN KEY (`Section_ID`) REFERENCES `tbl_sections` (`Section_ID`);
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+-- ----------------------------
+-- Records of tbl_trackinfo
+-- ----------------------------
+INSERT INTO `tbl_trackinfo` VALUES ('1', 'Accounting, Business and Management', null);
+INSERT INTO `tbl_trackinfo` VALUES ('2', 'Science, Technology and Engineering Math', null);
+INSERT INTO `tbl_trackinfo` VALUES ('3', 'General Academic Strands', null);
+INSERT INTO `tbl_trackinfo` VALUES ('4', 'TVL-ICT(Programming and Hardware Servicing)', null);
+INSERT INTO `tbl_trackinfo` VALUES ('5', 'TVL-Home Economics:Culinary Arts', null);

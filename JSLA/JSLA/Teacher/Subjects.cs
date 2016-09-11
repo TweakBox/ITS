@@ -28,7 +28,7 @@ namespace JSLA.Teacher
             //homeworks
             //...
 
-            string[,] result = _db.ScanRecords("tbl_subject", "Subject_ID", "Subject_Name");
+            object[,] result = _db.ScanRecords("tbl_subject", "Subject_ID", "Subject_Name");
             for (int i = 0; i < result.GetLength(0); i++)
             {
                 Random r = new Random();
@@ -37,7 +37,7 @@ namespace JSLA.Teacher
                 Usercontrols.PictureButton pb = new Usercontrols.PictureButton()
                 {
                     Tag = result[i, 0],
-                    Title = result[i, 1],
+                    Title = result[i, 1].ToString(),
                     Count = r.Next(5),
                     BackColor = c,
                     ForeColor = Color.White
@@ -52,7 +52,7 @@ namespace JSLA.Teacher
         private void Pb_Click(object sender, EventArgs e)
         {
             Control c = (Control)sender;
-            string[,] result = _db.ScanRecords("tbl_sections", new string[] { "Section" });
+            object[,] result = _db.ScanRecords("tbl_sections", new string[] { "Section" });
         }
 
         private void child_FormClosed(object sender, FormClosedEventArgs e)

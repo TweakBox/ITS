@@ -47,12 +47,12 @@ namespace JSLA.Student
 
         private Classess.AccountInfo fetchUserInfo()
         {
-            string[,] result = _db.ScanRecords("tbl_student", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Stud_ID = '" + _id + '\'');
+            object[,] result = _db.ScanRecords("tbl_studentinfo", new string[] { "Lastname", "Firstname", "Middlename", "Avatar" }, "_id = '" + _id + '\'');
             return _accountInfo = new Classess.AccountInfo(
                 _id,
-                result[0, 0],
-                result[0, 1],
-                result[0, 2],
+                result[0, 0].ToString(),
+                result[0, 1].ToString(),
+                result[0, 2].ToString(),
                 Classess.AccountInfo.AccountTypeEnum.Student,
                 null//result[0, 3]
                 );

@@ -19,8 +19,8 @@ namespace JSLA
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new SplashScreen());
-            Database db = new Database();
-            db.TryOpenConnection();
+            //Database db = new Database();
+            //db.TryOpenConnection();
             //Application.Run(new Student.Dashboard(db, "123123123"));
             //Application.Run(new Teacher.Dashboard(db, "202020"));
             //Application.Run(new Administrator.Dashboard(db, "303030"));

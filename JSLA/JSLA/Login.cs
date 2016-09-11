@@ -29,21 +29,21 @@ namespace JSLA
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string[,] result = _db.ScanRecords("tbl_accounts", new string[] { "Attempts", "Password", "AccType", "ReferenceId" }, "UserId = '" + tbxUserId.Text + '\'');
+            object[,] result = _db.ScanRecords("tbl_accounts", new string[] { "attempts", "password", "user_level", "reference_id" }, "UserId = '" + tbxUserId.Text + '\'');
             if (result.GetLength(0) > 0)
-                if (int.Parse(result[0, 0]) < 5)
+                if (int.Parse(result[0, 0].ToString()) < 5)
                     if (tbxPassword.Text == result[0, 1].ToString())
                     {
                         _db.UpdateRecord("tbl_accounts", "UserId", tbxUserId.Text, new string[] { "Attempts" }, new string[] { "0" });
 
                         Form f = new Form();
-                        switch (result[0, 2])
+                        switch (result[0, 2].ToString())
                         {
                             case "Student":
-                                f = new Student.Dashboard(_db, result[0, 3]);
+                                f = new Student.Dashboard(_db, result[0, 3].ToString());
                                 break;
                             case "Teacher":
-                                f = new Teacher.Dashboard(_db, result[0, 3]);
+                                f = new Teacher.Dashboard(_db, result[0, 3].ToString());
                                 break;
                             case "Admin":
                                 break;
@@ -55,12 +55,12 @@ namespace JSLA
                     }
                     else
                     {
-                        _db.UpdateRecord("tbl_accounts", "UserId", tbxUserId.Text, new string[] { "Attempts" }, new string[] { (int.Parse(result[0, 0]) + 1).ToString() });
+                        _db.UpdateRecord("tbl_accounts", "UserId", tbxUserId.Text, new string[] { "Attempts" }, new string[] { (int.Parse(result[0, 0].ToString()) + 1).ToString() });
 
                         MessageBox.Show("Wrong password entered. Five(5) failed attempts will lead to your account being locked", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         tbxPassword.Focus();
                         tbxPassword.SelectAll();
-                        if (int.Parse(result[0, 0]) == 4)
+                        if (int.Parse(result[0, 0].ToString()) == 4)
                             MessageBox.Show("This account has failed five(5) log in attempts.", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 else

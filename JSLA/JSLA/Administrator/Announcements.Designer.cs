@@ -132,15 +132,15 @@
             this.lblPage.AutoSize = true;
             this.lblPage.Location = new System.Drawing.Point(83, 0);
             this.lblPage.Name = "lblPage";
-            this.lblPage.Size = new System.Drawing.Size(69, 30);
+            this.lblPage.Size = new System.Drawing.Size(74, 30);
             this.lblPage.TabIndex = 8;
-            this.lblPage.Text = "x of xx";
+            this.lblPage.Text = "-- of --";
             // 
             // llbNext
             // 
             this.llbNext.AutoSize = true;
             this.llbNext.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.llbNext.Location = new System.Drawing.Point(158, 0);
+            this.llbNext.Location = new System.Drawing.Point(163, 0);
             this.llbNext.Name = "llbNext";
             this.llbNext.Size = new System.Drawing.Size(27, 30);
             this.llbNext.TabIndex = 6;
@@ -152,7 +152,7 @@
             // 
             this.llbFastforward.AutoSize = true;
             this.llbFastforward.Font = new System.Drawing.Font("Segoe UI", 15.75F);
-            this.llbFastforward.Location = new System.Drawing.Point(191, 0);
+            this.llbFastforward.Location = new System.Drawing.Point(196, 0);
             this.llbFastforward.Name = "llbFastforward";
             this.llbFastforward.Size = new System.Drawing.Size(41, 30);
             this.llbFastforward.TabIndex = 4;
