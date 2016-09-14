@@ -1,4 +1,4 @@
-﻿namespace JSLA.Administrator
+﻿namespace JSLA.Administrator.AccountManager
 {
     partial class StudentInfoDialog
     {
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -56,8 +55,6 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.btnChoose = new System.Windows.Forms.Button();
             this.pbxAvatar = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -313,7 +310,7 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(175, 45);
             this.btnConfirm.TabIndex = 3;
-            this.btnConfirm.Text = "Save";
+            this.btnConfirm.Text = "&Save";
             this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirm.UseVisualStyleBackColor = false;
@@ -355,26 +352,6 @@
             this.cbxStatus.Size = new System.Drawing.Size(150, 29);
             this.cbxStatus.TabIndex = 1;
             // 
-            // lblMessage
-            // 
-            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.lblMessage.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.White;
-            this.lblMessage.Location = new System.Drawing.Point(0, 575);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(800, 25);
-            this.lblMessage.TabIndex = 10;
-            this.lblMessage.Text = "Account Saved!";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMessage.Visible = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 3000;
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
             // btnChoose
             // 
             this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -415,7 +392,6 @@
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.pbxAvatar);
             this.Controls.Add(this.btnChoose);
-            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbxStatus);
             this.Controls.Add(this.btnBack);
@@ -473,8 +449,6 @@
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label lblMessage;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button btnChoose;
         private System.Windows.Forms.PictureBox pbxAvatar;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

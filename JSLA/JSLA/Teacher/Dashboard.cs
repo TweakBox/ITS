@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -77,21 +78,22 @@ namespace JSLA.Teacher
 
             lblFullname.Text = _accountInfo.Lastname + ", " + _accountInfo.Firstname + ' ' + _accountInfo.Middlename[0] + '.';
             lblUserid.Text = _id;
+            pbxAvatar.Image = _accountInfo.Avatar;
 
             pnlSidedrawer.Location = new Point(-250, 0);
             actions_Click(btnAnnouncements, EventArgs.Empty);
         }
 
-        private Classess.AccountInfo fetchUserInfo()
+        private void fetchUserInfo()
         {
             object[,] result = _db.ScanRecords("tbl_teachers", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Teacher_Id = '" + _id + '\'');
-            return _accountInfo = new Classess.AccountInfo(
+            _accountInfo = new Classess.AccountInfo(
                 _id,
                 result[0, 0].ToString(),
                 result[0, 1].ToString(),
                 result[0, 2].ToString(),
                 Classess.AccountInfo.AccountTypeEnum.Teacher,
-                null//result[0, 3]
+                Image.FromStream(new MemoryStream((byte[])result[0, 3]))
                 );
         }
 
@@ -119,7 +121,7 @@ namespace JSLA.Teacher
 
         private void setWorkspace(Actions action)
         {
-            Form f = new Form();
+            Form f = null;
             switch (action)
             {
                 case Actions.Announcements:
@@ -129,11 +131,14 @@ namespace JSLA.Teacher
                     f = new Subjects(_db, _accountInfo);
                     break;
             }
-            f.TopLevel = false;
             pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(f);
-            f.Show();
-            f.Dock = DockStyle.Fill;
+            if(f != null)
+            {
+                f.TopLevel = false;
+                pnlContent.Controls.Add(f);
+                f.Show();
+                f.Dock = DockStyle.Fill;
+            }
         }
     }
 }

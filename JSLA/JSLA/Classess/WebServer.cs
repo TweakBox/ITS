@@ -57,6 +57,11 @@ public class WebServer
         _client.UploadFileAsync(new Uri(new Uri(_serverAddress + urlpath), newfilepath), "POST", filepath);
     }
 
+    public void CancelAsync()
+    {
+        _client.CancelAsync();
+    }
+
     //----------Events----------//
     //---Download---//
     private void _client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
@@ -76,8 +81,6 @@ public class WebServer
     {
         if (!e.Cancelled && e.Error == null)
             File.WriteAllBytes(AppDomain.CurrentDomain.BaseDirectory +  _downloadDataSaveLocation, e.Result);
-        else
-            System.Windows.Forms.MessageBox.Show(e.Error.StackTrace, e.Error.Message);
 
         onDownloadDataCompleted(e);
     }

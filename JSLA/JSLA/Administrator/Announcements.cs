@@ -29,7 +29,7 @@ namespace JSLA.Administrator
         {
             object[,] result = _db.ExecuteQuery("select _id, Title, Poster from tbl_announcements where Status = 'Active'");
 
-            if (result.GetLength(0) > 0)
+            if (result.GetLength(0) > 1)
             {
                 _announcementList.Clear();
                 for (int i = 0; i < result.GetLength(0); i++)
@@ -44,17 +44,18 @@ namespace JSLA.Administrator
                 }
 
                 displayPoster(index);
+                return;
             }
-            else
-            {
-                btnNext.Enabled = false;
-                btnPrevious.Enabled = false;
-                llbFastforward.Enabled = false;
-                llbNext.Enabled = false;
-                llbRewind.Enabled = false;
-                llbPrevious.Enabled = false;
-                timer1.Stop();
-            }
+            else if (result.GetLength(0) == 1)
+                pbxPoster.Image = Image.FromStream(new MemoryStream((byte[])result[0, 2]));
+            
+            btnNext.Enabled = false;
+            btnPrevious.Enabled = false;
+            llbFastforward.Enabled = false;
+            llbNext.Enabled = false;
+            llbRewind.Enabled = false;
+            llbPrevious.Enabled = false;
+            timer1.Stop();
         }
 
         private void displayPoster(int index)

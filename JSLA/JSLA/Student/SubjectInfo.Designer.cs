@@ -31,10 +31,10 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.flpHomeworks = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnBack = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnHandouts = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -68,32 +68,47 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Location = new System.Drawing.Point(12, 302);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(250, 286);
+            this.groupBox2.Size = new System.Drawing.Size(517, 286);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Quizzes";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Location = new System.Drawing.Point(268, 302);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(520, 286);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Distributables";
-            // 
             // groupBox4
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox4.Location = new System.Drawing.Point(538, 49);
+            this.groupBox4.Location = new System.Drawing.Point(538, 112);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(250, 247);
+            this.groupBox4.Size = new System.Drawing.Size(250, 476);
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Notes";
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(12, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(158, 37);
+            this.lblTitle.TabIndex = 3;
+            this.lblTitle.Text = "Subject Title";
+            // 
+            // btnHandouts
+            // 
+            this.btnHandouts.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnHandouts.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
+            this.btnHandouts.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHandouts.Font = new System.Drawing.Font("Segoe UI Light", 15.75F);
+            this.btnHandouts.ForeColor = System.Drawing.Color.White;
+            this.btnHandouts.Image = global::JSLA.Properties.Resources.Download;
+            this.btnHandouts.Location = new System.Drawing.Point(538, 56);
+            this.btnHandouts.Name = "btnHandouts";
+            this.btnHandouts.Size = new System.Drawing.Size(250, 50);
+            this.btnHandouts.TabIndex = 4;
+            this.btnHandouts.Text = "Handouts";
+            this.btnHandouts.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnHandouts.UseVisualStyleBackColor = false;
+            this.btnHandouts.Click += new System.EventHandler(this.btnHandouts_Click);
             // 
             // btnBack
             // 
@@ -108,26 +123,16 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semilight", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(12, 9);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(158, 37);
-            this.lblTitle.TabIndex = 3;
-            this.lblTitle.Text = "Subject Title";
-            // 
             // SubjectInfo
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.btnHandouts);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Segoe UI Light", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Black;
@@ -145,10 +150,10 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.FlowLayoutPanel flpHomeworks;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnHandouts;
     }
 }

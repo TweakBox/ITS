@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -29,7 +30,7 @@ namespace JSLA.Administrator
             _db = db;
             _id = id;
 
-            _actionButtons = new Button[]{ btnAnnouncements, btnSubjects };
+            _actionButtons = new Button[]{ btnAnnouncements, btnFileManager, btnSubjects };
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
@@ -52,16 +53,17 @@ namespace JSLA.Administrator
             Close();
         }
 
-        private Classess.AccountInfo fetchUserInfo()
+        private void fetchUserInfo()
         {
-            object[,] result = _db.ScanRecords("tbl_student", new string[] { "LastName", "FirstName", "MiddleName", "Avatar" }, "Stud_ID = '" + _id + '\'');
-            return _accountInfo = new Classess.AccountInfo(
+            object[,] result = _db.ScanRecords("tbl_teacherinfo", new string[] { "Lastname", "Firstname", "Middlename", "Avatar" }, "_id = '" + _id + '\'');
+
+            _accountInfo = new Classess.AccountInfo(
                 _id,
                 result[0, 0].ToString(),
                 result[0, 1].ToString(),
                 result[0, 2].ToString(),
                 Classess.AccountInfo.AccountTypeEnum.Student,
-                null//result[0, 3]
+                Image.FromStream(new MemoryStream((byte[])result[0, 3]))
                 );
         }
 
@@ -95,7 +97,7 @@ namespace JSLA.Administrator
                     _action = Actions.Announcements;
                     break;
                 case "File Manager":
-                    //_action = Actions.Announcements;
+                    _action = Actions.FileManager;
                     break;
                 case "Account Manager":
                     _action = Actions.AccountManager;
@@ -112,29 +114,46 @@ namespace JSLA.Administrator
 
         private void setWorkspace(Actions action)
         {
-            Form f = new Form();
+            Form f = null;
             switch (action)
             {
                 case Actions.Announcements:
                     f = new Announcements(_db);
                     break; 
                 case Actions.FileManager:
-                    //f = new Announcements();
+                    f = new FileManager.FileManager(_db);
                     break;
                 case Actions.AccountManager:
-                    f = new AccountManager(_db);
+                    f = new AccountManager.AccountManager(_db);
                     break;
             }
-            f.TopLevel = false;
             pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(f);
-            f.Show();
-            f.Dock = DockStyle.Fill;
+            if (f != null)
+            {
+                f.TopLevel = false;
+                pnlContent.Controls.Add(f);
+                f.Show();
+                f.Dock = DockStyle.Fill;
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblDateTime.Text = DateTime.Now.ToLongDateString() + ' ' + DateTime.Now.ToLongTimeString();
+        }
+
+        public void ShowMessageBar(string message, int duration)
+        {
+            lblMessage.Text = message;
+            lblMessage.Visible = true;
+
+            System.Windows.Forms.Timer t = new System.Windows.Forms.Timer() { Interval = duration };
+            t.Tick += (object sender, EventArgs e) => {
+                lblMessage.Visible = false;
+                t.Stop();
+                t.Dispose();
+            };
+            t.Start();
         }
     }
 }

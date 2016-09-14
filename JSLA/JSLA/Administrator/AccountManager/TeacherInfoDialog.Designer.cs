@@ -1,4 +1,4 @@
-﻿namespace JSLA.Administrator
+﻿namespace JSLA.Administrator.AccountManager
 {
     partial class TeacherInfoDialog
     {
@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnChoose = new System.Windows.Forms.Button();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lblMessage = new System.Windows.Forms.Label();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.cbxStatus = new System.Windows.Forms.ComboBox();
             this.btnBack = new System.Windows.Forms.Button();
@@ -51,6 +47,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbxID = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnChoose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,41 +57,6 @@
             // 
             this.openFileDialog1.Filter = "Image files|*.png;*.jpg;*.jpeg;*.gif|All files|*.*";
             this.openFileDialog1.Title = "Select Image";
-            // 
-            // btnChoose
-            // 
-            this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChoose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
-            this.btnChoose.FlatAppearance.BorderSize = 0;
-            this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnChoose.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnChoose.ForeColor = System.Drawing.Color.White;
-            this.btnChoose.Location = new System.Drawing.Point(607, 100);
-            this.btnChoose.Name = "btnChoose";
-            this.btnChoose.Size = new System.Drawing.Size(100, 25);
-            this.btnChoose.TabIndex = 17;
-            this.btnChoose.Text = "Choose Image";
-            this.btnChoose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnChoose.UseVisualStyleBackColor = false;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 3000;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMessage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(127)))), ((int)(((byte)(255)))));
-            this.lblMessage.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.White;
-            this.lblMessage.Location = new System.Drawing.Point(0, 575);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(800, 25);
-            this.lblMessage.TabIndex = 23;
-            this.lblMessage.Text = "Account Saved!";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblMessage.Visible = false;
             // 
             // btnConfirm
             // 
@@ -108,10 +70,11 @@
             this.btnConfirm.Name = "btnConfirm";
             this.btnConfirm.Size = new System.Drawing.Size(175, 45);
             this.btnConfirm.TabIndex = 18;
-            this.btnConfirm.Text = "Save";
+            this.btnConfirm.Text = "&Save";
             this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnConfirm.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnConfirm.UseVisualStyleBackColor = false;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // cbxStatus
             // 
@@ -138,6 +101,7 @@
             this.btnBack.Size = new System.Drawing.Size(45, 45);
             this.btnBack.TabIndex = 19;
             this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // label11
             // 
@@ -292,13 +256,29 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Teacher ID:";
             // 
+            // btnChoose
+            // 
+            this.btnChoose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnChoose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(192)))), ((int)(((byte)(60)))));
+            this.btnChoose.FlatAppearance.BorderSize = 0;
+            this.btnChoose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnChoose.Font = new System.Drawing.Font("Segoe UI Light", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnChoose.ForeColor = System.Drawing.Color.White;
+            this.btnChoose.Location = new System.Drawing.Point(607, 100);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(100, 25);
+            this.btnChoose.TabIndex = 17;
+            this.btnChoose.Text = "Choose Image";
+            this.btnChoose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnChoose.UseVisualStyleBackColor = false;
+            this.btnChoose.Click += new System.EventHandler(this.btnChoose_Click);
+            // 
             // TeacherInfoDialog
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.btnChoose);
-            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.cbxStatus);
             this.Controls.Add(this.btnBack);
@@ -326,9 +306,6 @@
         #endregion
 
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Button btnChoose;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.ComboBox cbxStatus;
         private System.Windows.Forms.Button btnBack;
@@ -347,5 +324,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbxID;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnChoose;
     }
 }

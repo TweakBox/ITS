@@ -14,20 +14,20 @@ namespace JSLA.Student
     {
         private Database _db;
         private Classess.AccountInfo _account;
-        private int _subjectId;
 
-        public SubjectInfo(Database db, Classess.AccountInfo account, int subjectId)
+        public SubjectInfo(Database db, Classess.AccountInfo account, string title)
         {
             InitializeComponent();
 
             _db = db;
             _account = account;
-            _subjectId = subjectId;
+
+            lblTitle.Text = title;
         }
 
         private void SubjectInfo_Load(object sender, EventArgs e)
         {
-            lblTitle.Text = _db.ScanRecordScalar("tbl_subject", "Subject_Name", "Subject_Id = '" + _subjectId.ToString() + '\'');
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -42,8 +42,13 @@ namespace JSLA.Student
 
         private void fetchHomeworks()
         {
-            string section = _db.ScanRecordScalar("tbl_student", "Section_Id", "Stud_Id = '" + _account.UserId + '\'');
-            object[,] results = _db.ScanRecords("tbl_homework", new string[] { "Title", "DateDue", "Content", "Homework_Id" }, "Subject_Id = '" + _subjectId + "' and Section_Id = '" + section + "' and DateDue > '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + '\'');
+            object[,] results = _db.ScanRecords(
+                @"tbl_studentinfo
+                    INNER JOIN tbl_classlist ON tbl_classlist.Student_no = tbl_studentinfo._id
+                    INNER JOIN tbl_sectionlist ON tbl_classlist.Section_id = tbl_sectionlist.Section_id
+                    INNER JOIN tbl_homeworks ON tbl_homeworks.SectionList_id = tbl_sectionlist._id",
+                new string[] { "tbl_homeworks._id", "Title", "Description", "DateDue" },
+                "tbl_studentinfo._id = '" + _account.UserId + "' and DateDue > '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + '\'');
 
             flpHomeworks.Controls.Clear();
             if (results.GetLength(0) > 0)
@@ -52,10 +57,10 @@ namespace JSLA.Student
                 {
                     Usercontrols.ItemInfoButton iib = new Usercontrols.ItemInfoButton()
                     {
-                        Title = results[i, 0].ToString(),
-                        Subtitle = "Due: " + DateTime.Parse(results[i, 1].ToString()).ToLongDateString(),
+                        Tag = results[i, 0],
+                        Title = results[i, 1].ToString(),
                         Description = results[i, 2].ToString(),
-                        Tag = results[i, 3],
+                        Subtitle = "Due: " + DateTime.Parse(results[i, 3].ToString()).ToLongDateString(),
                         Width = flpHomeworks.Width
                     };
                     iib.Click += Iib_Click;
@@ -90,16 +95,33 @@ namespace JSLA.Student
 
         }
 
-        private void fetchDistributables()
-        {
-
-        }
-
         private void Containers_ControlAdded(object sender, ControlEventArgs e)
         {
             ScrollableControl container = (ScrollableControl)sender;
             foreach (Control item in container.Controls)
                 item.Width = !container.VerticalScroll.Visible ? container.Width - 6 : container.Width - 23;
+        }
+
+        private void btnHandouts_Click(object sender, EventArgs e)
+        {
+            object sectionListId = _db.ScanRecordScalar(
+                @"tbl_studentinfo
+                    INNER JOIN tbl_classlist ON tbl_classlist.Student_no = tbl_studentinfo._id
+                    INNER JOIN tbl_sectionlist ON tbl_classlist.Section_id = tbl_sectionlist.Section_id",
+                "tbl_sectionlist._id",
+                "tbl_studentinfo._id = '" + _account.UserId + '\''
+                );
+
+            Subjects.Handouts h = new Subjects.Handouts(_db, sectionListId.ToString()) { Dock = DockStyle.Fill, TopLevel = false };
+            h.FormClosed += H_FormClosed;
+            this.Parent.Controls.Add(h);
+            Hide();
+            h.Show();
+        }
+
+        private void H_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }

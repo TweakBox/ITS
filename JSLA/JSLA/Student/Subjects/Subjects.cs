@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using JSLA.Classess;
 
-namespace JSLA.Student
+namespace JSLA.Student.Subjects
 {
     public partial class Subjects : Form
     {
@@ -28,7 +28,14 @@ namespace JSLA.Student
             //homeworks
             //...
 
-            object[,] result = _db.ScanRecords("tbl_subject", "Subject_ID", "Subject_Name");
+            object[,] result = _db.ScanRecords(
+                @"tbl_studentinfo
+                    INNER JOIN tbl_classlist ON tbl_classlist.Student_no = tbl_studentinfo._id
+                    INNER JOIN tbl_sectionlist ON tbl_classlist.Section_id = tbl_sectionlist.Section_id
+                    INNER JOIN tbl_subjectinfo ON tbl_sectionlist.Subject_id = tbl_subjectinfo._id",
+                new string[] { "Subject" },
+                "tbl_studentinfo._id = '" + _account.UserId + '\''
+                );
             for (int i = 0; i < result.GetLength(0); i++)
             {
                 Random r = new Random();
@@ -36,8 +43,7 @@ namespace JSLA.Student
 
                 Usercontrols.PictureButton pb = new Usercontrols.PictureButton()
                 {
-                    Tag = result[i, 0],
-                    Title = result[i, 1].ToString(),
+                    Title = result[i, 0].ToString(),
                     Count = r.Next(5),
                     BackColor = c,
                     ForeColor = Color.White
@@ -52,7 +58,7 @@ namespace JSLA.Student
         private void Pb_Click(object sender, EventArgs e)
         {
             Control c = (Control)sender;
-            SubjectInfo si = new SubjectInfo(_db, _account, int.Parse(c.Tag.ToString()));
+            SubjectInfo si = new SubjectInfo(_db, _account, ((Usercontrols.PictureButton)sender).Title);
             si.FormClosed += child_FormClosed;
 
             si.Dock = DockStyle.Fill;

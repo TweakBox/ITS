@@ -1,4 +1,4 @@
-﻿namespace JSLA.Administrator
+﻿namespace JSLA.Administrator.AccountManager
 {
     partial class AccountManager
     {
@@ -161,6 +161,7 @@
             this.btManageStudent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btManageStudent.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btManageStudent.UseVisualStyleBackColor = false;
+            this.btManageStudent.Click += new System.EventHandler(this.btManageStudent_Click);
             // 
             // groupBox1
             // 

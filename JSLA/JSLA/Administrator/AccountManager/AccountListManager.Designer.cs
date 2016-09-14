@@ -1,4 +1,4 @@
-﻿namespace JSLA.Administrator
+﻿namespace JSLA.Administrator.AccountManager
 {
     partial class AccountListManager
     {
@@ -79,11 +79,10 @@
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(175, 45);
             this.btnRemove.TabIndex = 3;
-            this.btnRemove.Text = "Remove";
+            this.btnRemove.Text = "&Remove";
             this.btnRemove.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnRemove.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRemove.UseVisualStyleBackColor = false;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnEdit
             // 
@@ -98,11 +97,10 @@
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(175, 45);
             this.btnEdit.TabIndex = 3;
-            this.btnEdit.Text = "Edit";
+            this.btnEdit.Text = "&Edit";
             this.btnEdit.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnEdit.UseVisualStyleBackColor = false;
-            this.btnEdit.Click += new System.EventHandler(this.btnEditStudent_Click);
             // 
             // btnReset
             // 
@@ -118,11 +116,10 @@
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(175, 45);
             this.btnReset.TabIndex = 3;
-            this.btnReset.Text = "Reset Password";
+            this.btnReset.Text = "Reset &Password";
             this.btnReset.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnReset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnReset.UseVisualStyleBackColor = false;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
             // btnAdd
             // 
@@ -136,11 +133,10 @@
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(175, 45);
             this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "&Add";
             this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAddStudent_Click);
             // 
             // btnBack
             // 

@@ -24,17 +24,17 @@ namespace JSLA
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Close();
+            Application.Exit();
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            object[,] result = _db.ScanRecords("tbl_accounts", new string[] { "attempts", "password", "user_level", "reference_id" }, "UserId = '" + tbxUserId.Text + '\'');
+            object[,] result = _db.ScanRecords("tbl_accounts", new string[] { "attempts", "password", "user_level", "reference_id" }, "_Id = '" + tbxUserId.Text + '\'');
             if (result.GetLength(0) > 0)
                 if (int.Parse(result[0, 0].ToString()) < 5)
                     if (tbxPassword.Text == result[0, 1].ToString())
                     {
-                        _db.UpdateRecord("tbl_accounts", "UserId", tbxUserId.Text, new string[] { "Attempts" }, new string[] { "0" });
+                        _db.UpdateRecord("tbl_accounts", "_id", tbxUserId.Text, new string[] { "Attempts" }, new string[] { "0" });
 
                         Form f = new Form();
                         switch (result[0, 2].ToString())
@@ -55,7 +55,7 @@ namespace JSLA
                     }
                     else
                     {
-                        _db.UpdateRecord("tbl_accounts", "UserId", tbxUserId.Text, new string[] { "Attempts" }, new string[] { (int.Parse(result[0, 0].ToString()) + 1).ToString() });
+                        _db.UpdateRecord("tbl_accounts", "_id", tbxUserId.Text, new string[] { "Attempts" }, new string[] { (int.Parse(result[0, 0].ToString()) + 1).ToString() });
 
                         MessageBox.Show("Wrong password entered. Five(5) failed attempts will lead to your account being locked", "Warning!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         tbxPassword.Focus();

@@ -91,12 +91,12 @@ public class Database
             Reader.Close();
 
             Reader = Command.ExecuteReader();
-            int i = 0;
+            cnt = 0;
             while (Reader.Read())
             {
-                for (int i2 = 0; i2 < Reader.FieldCount; i2++)
-                    records[i, i2] = Reader[i2];
-                i++;
+                for (int i = 0; i < Reader.FieldCount; i++)
+                    records[cnt, i] = Reader[i];
+                cnt++;
             }
             Reader.Close();
 

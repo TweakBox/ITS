@@ -9,17 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JSLA.Administrator
+namespace JSLA.Administrator.AccountManager
 {
-    public partial class StudentInfoDialog : Form
+    public partial class TeacherInfoDialog : Form
     {
         private Database _db;
         private DialogType _type;
         private string _filepath;
 
         public enum DialogType { Add, Edit }
-
-        public StudentInfoDialog(Database db, DialogType dt, string[] values)
+        public TeacherInfoDialog(Database db, DialogType dt, string[] values)
         {
             InitializeComponent();
 
@@ -28,7 +27,7 @@ namespace JSLA.Administrator
             switch (_type = dt)
             {
                 case DialogType.Add:
-                    generateStudentId();
+                    generateTeacherId();
 
                     cbxStatus.SelectedItem = "Active";
                     cbxStatus.Enabled = false;
@@ -41,15 +40,14 @@ namespace JSLA.Administrator
                     tbxFirstname.Text = values[2];
                     tbxMiddlename.Text = values[3];
                     cbxGender.SelectedItem = values[4];
-                    tbxGuardianLname.Text = values[5];
-                    tbxGuardianFname.Text = values[6];
-                    tbxGuardianMname.Text = values[7];
-                    tbxContact.Text = values[8];
-                    cbxStatus.SelectedItem = values[9];
+                    cbxStatus.SelectedItem = values[5];
 
-                    object[,] result =  _db.ScanRecords("tbl_studentinfo", new string[] { "Avatar" }, "_id = '" + values[0] + '\'');
+                    object[,] result = _db.ScanRecords("tbl_teacherinfo", new string[] { "Avatar" }, "_id = '" + values[0] + '\'');
                     if (result[0, 0].ToString() != "")
-                        pbxAvatar.Image = Image.FromStream(new MemoryStream((byte[])result[0, 0]));
+                    {
+                        byte[] data = (byte[])result[0, 0];
+                        pbxAvatar.Image = Image.FromStream(new MemoryStream(data));
+                    }
                     else
                         pbxAvatar.Image = null;
 
@@ -57,9 +55,9 @@ namespace JSLA.Administrator
             }
         }
 
-        private void generateStudentId()
+        private void generateTeacherId()
         {
-            object[,] result = _db.ScanRecords("tbl_studentinfo", "_id");
+            object[,] result = _db.ScanRecords("tbl_teacherinfo", "_id");
             Random r = new Random();
             int id = r.Next(0, 499999999);
 
@@ -70,7 +68,7 @@ namespace JSLA.Administrator
                     id = r.Next(0, 499999999);
                 }
 
-            tbxID.Text = "0" + id.ToString("D10");
+            tbxID.Text = "1" + id.ToString("D10");
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -78,36 +76,23 @@ namespace JSLA.Administrator
             Close();
         }
 
-        private void tbxContact_TextChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < tbxContact.TextLength; i++)
-                if (!"1234567890".Contains(tbxContact.Text[i]))
-                {
-                    tbxContact.Text = tbxContact.Text.Remove(i, 1);
-                    tbxContact.Select(tbxContact.TextLength, 0);
-                }
-        }
-
         private void btnConfirm_Click(object sender, EventArgs e)
         {
+            MemoryStream ms = new MemoryStream();
+            pbxAvatar.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] data = ms.ToArray();
+
             if (_type == DialogType.Add)
             {
                 Random r = new Random();
                 //byte[] data = File.ReadAllBytes(_filepath);
-                MemoryStream ms = new MemoryStream();
-                pbxAvatar.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
-                byte[] data = ms.ToArray();
 
-                _db.Command.CommandText = "insert into tbl_studentinfo values('" +
+                _db.Command.CommandText = "insert into tbl_teacherinfo values('" +
                     tbxID.Text + "', '" +
                     tbxLastname.Text + "', '" +
                     tbxFirstname.Text + "', '" +
                     tbxMiddlename.Text + "', '" +
                     cbxGender.Text + "', '" +
-                    tbxGuardianLname.Text + "', '" +
-                    tbxGuardianFname.Text + "', '" +
-                    tbxGuardianMname.Text + "', '" +
-                    tbxContact.Text + "', '" +
                     cbxStatus.Text + "', ?data)";
 
                 MySql.Data.MySqlClient.MySqlParameter dataparam = new MySql.Data.MySqlClient.MySqlParameter("?data", MySql.Data.MySqlClient.MySqlDbType.Blob, data.Length);
@@ -118,40 +103,45 @@ namespace JSLA.Administrator
                 _db.InsertRecord("tbl_accounts",
                     tbxID.Text,
                     r.Next(100000, 999999).ToString(),
-                    "Student",
+                    "Teacher",
                     "0",
                     tbxID.Text,
                     "true"
                     );
-
-                lblMessage.Visible = true;
-                timer1.Start();
+                
                 resetText();
+            }
+            else
+            {
+                _db.Command.CommandText =
+                      "update tbl_studentinfo set Lastname = '" + tbxLastname.Text
+                      + "', Firstname = '" + tbxFirstname.Text
+                      + "', Middlename = '" + tbxMiddlename.Text
+                      + "', Gender = '" + cbxGender.Text
+                      + "', Status = '" + cbxStatus.Text
+                      + "', Avatar = ?data where _id = '" + tbxID.Text + '\'';
+
+                _db.Command.Parameters.Clear();
+                _db.Command.Parameters.AddWithValue("?data", data);
+                _db.Command.ExecuteNonQuery();
+
+                ((Dashboard)Parent.Parent).ShowMessageBar("Changes saved!", 3000);
+                Close();
             }
         }
 
         private void resetText()
         {
-            generateStudentId();
+            generateTeacherId();
 
             tbxLastname.ResetText();
             tbxFirstname.ResetText();
             tbxMiddlename.ResetText();
             cbxGender.SelectedItem = "";
 
-            tbxGuardianLname.ResetText();
-            tbxGuardianFname.ResetText();
-            tbxGuardianMname.ResetText();
-            tbxContact.ResetText();
             cbxStatus.SelectedItem = "Active";
 
             pbxAvatar.Image = null;
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            lblMessage.Visible = false;
-            timer1.Stop();
         }
 
         private void btnChoose_Click(object sender, EventArgs e)

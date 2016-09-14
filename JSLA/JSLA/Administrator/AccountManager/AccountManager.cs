@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JSLA.Administrator
+namespace JSLA.Administrator.AccountManager
 {
     public partial class AccountManager : Form
     {

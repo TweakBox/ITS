@@ -30,9 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.flpActions = new System.Windows.Forms.FlowLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnAnnouncements = new System.Windows.Forms.Button();
             this.btnSubjects = new System.Windows.Forms.Button();
             this.pnlSidedrawer = new System.Windows.Forms.Panel();
+            this.lblUserid = new JSLA.Usercontrols.LabelDropShadow();
+            this.lblFullname = new JSLA.Usercontrols.LabelDropShadow();
             this.pbxAvatar = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
             this.btnTogglesidedrawer = new System.Windows.Forms.Button();
@@ -40,11 +43,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.pbxHeader = new System.Windows.Forms.PictureBox();
-            this.lblUserid = new JSLA.Usercontrols.LabelDropShadow();
-            this.lblFullname = new JSLA.Usercontrols.LabelDropShadow();
             this.lblDateTime = new JSLA.Usercontrols.LabelDropShadow();
             this.label7 = new JSLA.Usercontrols.LabelDropShadow();
-            this.label1 = new System.Windows.Forms.Label();
             this.flpActions.SuspendLayout();
             this.pnlSidedrawer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbxAvatar)).BeginInit();
@@ -69,6 +69,17 @@
             this.flpActions.Name = "flpActions";
             this.flpActions.Size = new System.Drawing.Size(248, 481);
             this.flpActions.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(97, 30);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Actions";
             // 
             // btnAnnouncements
             // 
@@ -124,11 +135,35 @@
             this.pnlSidedrawer.Size = new System.Drawing.Size(250, 600);
             this.pnlSidedrawer.TabIndex = 8;
             // 
+            // lblUserid
+            // 
+            this.lblUserid.AutoEllipsis = true;
+            this.lblUserid.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserid.Location = new System.Drawing.Point(84, 69);
+            this.lblUserid.Name = "lblUserid";
+            this.lblUserid.ShadowDepth = 3;
+            this.lblUserid.Size = new System.Drawing.Size(163, 23);
+            this.lblUserid.Softness = 1F;
+            this.lblUserid.TabIndex = 9;
+            this.lblUserid.Text = "User ID";
+            // 
+            // lblFullname
+            // 
+            this.lblFullname.AutoEllipsis = true;
+            this.lblFullname.Location = new System.Drawing.Point(84, 39);
+            this.lblFullname.Name = "lblFullname";
+            this.lblFullname.ShadowDepth = 3;
+            this.lblFullname.Size = new System.Drawing.Size(163, 30);
+            this.lblFullname.Softness = 1F;
+            this.lblFullname.TabIndex = 8;
+            this.lblFullname.Text = "Fullname";
+            // 
             // pbxAvatar
             // 
             this.pbxAvatar.Location = new System.Drawing.Point(3, 39);
             this.pbxAvatar.Name = "pbxAvatar";
             this.pbxAvatar.Size = new System.Drawing.Size(75, 75);
+            this.pbxAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxAvatar.TabIndex = 0;
             this.pbxAvatar.TabStop = false;
             // 
@@ -200,29 +235,6 @@
             this.pbxHeader.TabIndex = 5;
             this.pbxHeader.TabStop = false;
             // 
-            // lblUserid
-            // 
-            this.lblUserid.AutoEllipsis = true;
-            this.lblUserid.Font = new System.Drawing.Font("Segoe UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserid.Location = new System.Drawing.Point(84, 69);
-            this.lblUserid.Name = "lblUserid";
-            this.lblUserid.ShadowDepth = 3;
-            this.lblUserid.Size = new System.Drawing.Size(163, 23);
-            this.lblUserid.Softness = 1F;
-            this.lblUserid.TabIndex = 9;
-            this.lblUserid.Text = "User ID";
-            // 
-            // lblFullname
-            // 
-            this.lblFullname.AutoEllipsis = true;
-            this.lblFullname.Location = new System.Drawing.Point(84, 39);
-            this.lblFullname.Name = "lblFullname";
-            this.lblFullname.ShadowDepth = 3;
-            this.lblFullname.Size = new System.Drawing.Size(163, 30);
-            this.lblFullname.Softness = 1F;
-            this.lblFullname.TabIndex = 8;
-            this.lblFullname.Text = "Fullname";
-            // 
             // lblDateTime
             // 
             this.lblDateTime.AutoSize = true;
@@ -254,17 +266,6 @@
             this.label7.TabIndex = 12;
             this.label7.Text = "Juan Sumulong Learning App";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(15, 0, 0, 0);
-            this.label1.Size = new System.Drawing.Size(97, 30);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Actions";
             // 
             // Dashboard
             // 

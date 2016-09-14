@@ -1,4 +1,4 @@
-﻿namespace JSLA.Student
+﻿namespace JSLA.Student.Subjects
 {
     partial class Subjects
     {

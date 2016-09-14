@@ -51,10 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrator\AccountManager.cs">
+    <Compile Include="Administrator\AccountManager\AccountManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\AccountManager.Designer.cs">
+    <Compile Include="Administrator\AccountManager\AccountManager.Designer.cs">
       <DependentUpon>AccountManager.cs</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Announcements.cs">
@@ -69,22 +69,34 @@
     <Compile Include="Administrator\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\StudentInfoDialog.cs">
+    <Compile Include="Administrator\AccountManager\StudentInfoDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\StudentInfoDialog.Designer.cs">
+    <Compile Include="Administrator\AccountManager\StudentInfoDialog.Designer.cs">
       <DependentUpon>StudentInfoDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\AccountListManager.cs">
+    <Compile Include="Administrator\AccountManager\AccountListManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\AccountListManager.Designer.cs">
+    <Compile Include="Administrator\AccountManager\AccountListManager.Designer.cs">
       <DependentUpon>AccountListManager.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\TeacherInfoDialog.cs">
+    <Compile Include="Administrator\FileManager\FileManager.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administrator\TeacherInfoDialog.Designer.cs">
+    <Compile Include="Administrator\FileManager\FileManager.Designer.cs">
+      <DependentUpon>FileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\FileManager\SubjectManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\FileManager\SubjectManager.Designer.cs">
+      <DependentUpon>SubjectManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\AccountManager\TeacherInfoDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administrator\AccountManager\TeacherInfoDialog.Designer.cs">
       <DependentUpon>TeacherInfoDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="Classess\AccountInfo.cs" />
@@ -129,11 +141,17 @@
     <Compile Include="Student\SubjectInfo.Designer.cs">
       <DependentUpon>SubjectInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student\Subjects.cs">
+    <Compile Include="Student\Subjects\Subjects.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Student\Subjects.Designer.cs">
+    <Compile Include="Student\Subjects\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Subjects\Handouts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Student\Subjects\Handouts.Designer.cs">
+      <DependentUpon>Handouts.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher\Announcements.cs">
       <SubType>Form</SubType>
@@ -153,6 +171,12 @@
     <Compile Include="Teacher\Subjects.Designer.cs">
       <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
+    <Compile Include="Usercontrols\DownloadableFileItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Usercontrols\DownloadableFileItem.Designer.cs">
+      <DependentUpon>DownloadableFileItem.cs</DependentUpon>
+    </Compile>
     <Compile Include="Usercontrols\ItemInfoButton.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,7 +195,7 @@
     <Compile Include="Usercontrols\PictureButton.Designer.cs">
       <DependentUpon>PictureButton.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Administrator\AccountManager.resx">
+    <EmbeddedResource Include="Administrator\AccountManager\AccountManager.resx">
       <DependentUpon>AccountManager.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administrator\Announcements.resx">
@@ -180,13 +204,19 @@
     <EmbeddedResource Include="Administrator\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrator\StudentInfoDialog.resx">
+    <EmbeddedResource Include="Administrator\AccountManager\StudentInfoDialog.resx">
       <DependentUpon>StudentInfoDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrator\AccountListManager.resx">
+    <EmbeddedResource Include="Administrator\AccountManager\AccountListManager.resx">
       <DependentUpon>AccountListManager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administrator\TeacherInfoDialog.resx">
+    <EmbeddedResource Include="Administrator\FileManager\FileManager.resx">
+      <DependentUpon>FileManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\FileManager\SubjectManager.resx">
+      <DependentUpon>SubjectManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administrator\AccountManager\TeacherInfoDialog.resx">
       <DependentUpon>TeacherInfoDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -214,14 +244,20 @@
     <EmbeddedResource Include="Student\SubjectInfo.resx">
       <DependentUpon>SubjectInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student\Subjects.resx">
+    <EmbeddedResource Include="Student\Subjects\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\Subjects\Handouts.resx">
+      <DependentUpon>Handouts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\Subjects.resx">
       <DependentUpon>Subjects.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Usercontrols\DownloadableFileItem.resx">
+      <DependentUpon>DownloadableFileItem.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Usercontrols\ItemInfoButton.resx">
       <DependentUpon>ItemInfoButton.cs</DependentUpon>
@@ -265,6 +301,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="jsla.sql" />
+    <None Include="Resources\OpenSmall.png" />
+    <None Include="Resources\DownloadSmall.png" />
+    <None Include="Resources\Download.png" />
+    <None Include="Resources\Cancel.png" />
     <None Include="Resources\Logout.png" />
     <None Include="Resources\Previous.png" />
     <None Include="Resources\Next.png" />

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace JSLA.Administrator
+namespace JSLA.Administrator.AccountManager
 {
     public partial class AccountListManager : Form
     {
@@ -41,7 +41,8 @@ namespace JSLA.Administrator
 
                         btnAdd.Click += btnAddStudent_Click;
                         btnEdit.Click += btnEditStudent_Click;
-                        btnRemove.Click += btnRemove_Click;
+                        btnAdd.Click -= btnAddTeacher_Click;
+                        btnEdit.Click -= btnEditTeacher_Click;
 
                         fetchStudents();
                         break;
@@ -60,6 +61,8 @@ namespace JSLA.Administrator
 
                         btnAdd.Click += btnAddTeacher_Click;
                         btnEdit.Click += btnEditTeacher_Click;
+                        btnAdd.Click -= btnAddStudent_Click;
+                        btnEdit.Click -= btnEditStudent_Click;
 
                         fetchTeachers();
                         break;
